@@ -1,0 +1,36 @@
+{
+  "circuit_family": "layered",
+  "n_qubits": 6,
+  "shots": 100,
+  "selected_calibration": "local_a",
+  "observed_failures": 6,
+  "prior_means": [
+    0.02,
+    0.03,
+    0.05
+  ],
+  "posterior_means": [
+    0.04,
+    0.03,
+    0.05
+  ],
+  "chosen_placement": [
+    1,
+    0,
+    1,
+    1,
+    0,
+    0
+  ],
+  "prior_expected_loss": 0.06342201176234451,
+  "posterior_expected_loss": 0.07317150299165909,
+  "evsi": {
+    "local_a": 0.0003750726057024367,
+    "local_b": 0.00021666003510208143,
+    "remote": 9.069648098600225e-05
+  },
+  "oracle_loss": 0.08797051463656254,
+  "actual_selected_loss": 0.08797051463656254,
+  "decision_regret": 0.0,
+  "calibration_backend": "binomial"
+}

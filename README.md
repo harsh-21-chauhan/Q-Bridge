@@ -1,0 +1,68 @@
+# Q-Bridge — Budget-Aware Calibration for Distributed Quantum Circuits
+
+**Hackathon research prototype, simulation only.** This code is new Q-Bridge work and is separate from the prior NS-QPEFT repository.
+
+**Scientific idea:** Under limited measurement shots, choose which error channel to calibrate so that a subsequent qubit-to-QPU placement decision has the lowest expected task error. The decision rule is Bayesian expected value of sample information (EVSI), not an LLM prediction.
+
+## Start here (Python 3.10–3.13)
+
+```bash
+git clone https://github.com/harsh-21-chauhan/Q-Bridge.git
+cd Q-Bridge
+python3 -m venv .venv
+source .venv/bin/activate                 # macOS / Linux
+python -m pip install -e '.[dev]'
+python -m pytest -q
+python -m qbridge.cli demo --family layered --qubits 6 --shots 100 --seed 42
+python -m qbridge.cli benchmark --family layered --qubits 6 --shots 50 --runs 30
+```
+
+**Aer validation** (optional; can be added after the base tests succeed):
+
+```bash
+python -m pip install -e '.[aer,dev]'
+python -m qbridge.cli validate-aer --family layered --qubits 6
+python -m pytest -q
+```
+
+On Windows use `.venv\\Scripts\\activate` instead.
+
+## Scientific assumptions (read before interpreting results)
+
+- Two *labelled* processors, A/B, each able to hold half of the logical qubits.
+- Circuits are deterministic Clifford circuits made from H and CX gates.
+- Each CX has an idealized effective Pauli channel: no error with probability `1-p`, X on target with `p/2`, Z on control with `p/2`. Local A/B and cross-processor CXs use distinct error probabilities.
+- Remote CX is a phenomenological channel, **not** a physical gate-teleportation simulation. Bell fidelity, heralding failure, readout noise and network timing are **not** modeled yet.
+- Calibration is an idealized Bernoulli diagnostic for one of the three effective channel error probabilities; a Bell-basis preparation/uncompute circuit can check this model in Aer.
+- Task loss is mean probability of an incorrect outcome for a set of independently defined ideal stabilizer generators, including an X-type coherence-sensitive check. This is **not** full state fidelity.
+- All 6-qubit placements are exhaustively evaluated. The 10–12-qubit demo remains a feasibility experiment; >12 must use new placement heuristics.
+- True error probabilities are hidden from the Bayesian decision algorithm and accessed only by simulation and oracle-based evaluation.
+- No real hardware experiments are claimed. Benchmark gains are not assumed in advance.
+
+## What the files do
+
+| File | Purpose |
+| --- | --- |
+| `src/qbridge/circuits.py` | Circuit structure, stabilizer observables, exact small placement enumeration |
+| `src/qbridge/loss.py` | Analytic expected parity loss under explicit Pauli noise |
+| `src/qbridge/bayes.py` | Beta posteriors, polynomial expectations, EVSI selection |
+| `src/qbridge/experiment.py` | Simulated calibration shots, experiment record |
+| `src/qbridge/benchmark.py` | Matched comparisons with fixed/random/no-calibration policies |
+| `src/qbridge/aer_validation.py` | Independent Aer density-matrix and shot-based diagnostic checks |
+| `src/qbridge/cli.py` | Terminal entry points |
+| `tests/` | Pass/fail tests for every scientific layer |
+| `docs/SPEC.md` | Scope, mathematical assumptions and remaining milestones |
+
+## Roadmap
+
+1. **M1 now:** small-circuit correctness + Bayesian selection + basic paired baseline evaluation.
+2. **M2 next:** benchmark different circuit families, larger circuits and approximate placement search, plus stronger likelihoods when justified.
+3. **M3 next:** FastAPI endpoints, interactive dashboard, structured experiment persistence.
+4. **M4 next:** Muse Spark tool orchestrator using `MODEL_API_KEY` in server-side environment; no API key needed for M1.
+5. **M5:** extensive benchmarks, limitations, public demo and 3-minute video.
+
+The M1 demo prints ground truth/oracle scores **only** because it is a scientific evaluation script. A production interface must mark those values as simulator-only and not expose them to the recommendation agent.
+
+**Detailed click-by-click / command-by-command testing:** [`docs/STEP_BY_STEP.md`](docs/STEP_BY_STEP.md).
+
+For a true Aer-generated calibration measurement instead of a NumPy binomial draw, add `--calibration-backend aer` to `demo` after installing `[aer]`.
