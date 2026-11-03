@@ -38,7 +38,7 @@ def guarded_placement(
     """Use expected task loss + uncertainty about a potential switch.
 
     Bayesian best is always computed by expected loss. If it differs from
-    incumbent, accept only when sampled P(new loss < incumbent loss) exceeds
+    incumbent, accept only when sampled P(new loss < incumbent loss) meets
     threshold. Decision never accesses simulated truth; regret is external.
     """
     if not 0.5 <= minimum_probability <= 1.0:
@@ -54,9 +54,13 @@ def guarded_placement(
     if candidate_index == incumbent_index or prior_loss - candidate_loss <= 1e-10:
         return {
             "chosen_index": int(incumbent_index), "candidate_index": candidate_index,
-            "switched": False, "posterior_probability_better": 0.5,
+            "switched": False, "posterior_probability_better": None,
             "expected_gain": max(0., prior_loss - candidate_loss),
-            "reason": "No clear positive expected-loss improvement",
+            "reason": (
+                "Candidate is the incumbent; no switch probability was estimated"
+                if candidate_index == incumbent_index else
+                "No expected-loss improvement above numerical tolerance; probability not estimated"
+            ),
         }
 
     rng = np.random.default_rng(seed)

@@ -42,6 +42,8 @@ Use the qbridge environment for the second command. Verification checks archive/
 
 ## Deferred to development
 
+This section records the state at cleanup. The scientific production interface has since been completed; see its [current contract and validation](SCIENTIFIC_INTERFACE.md) and the [remaining development order](DEVELOPMENT_PLAN.md).
+
 No scientific behavior or application code was changed in this cleanup. The next work is a production wrapper explicitly using original priors and a 60% guard, followed by FastAPI, persistence, React and Meta tool integration.
 
 Known integration issues remain: `run_sequential()` defaults to mixture priors; the guard reports a placeholder `0.5` when no meaningful switch is proposed; M2C currently converts that value unconditionally to float. Correcting reporting requires a coordinated source/test change. The production output also needs complete posterior snapshots, same-posterior placement comparisons and a separate simulator-evaluation section. What-if comparisons must preserve measurement-stream prefixes, not just reuse a seed.

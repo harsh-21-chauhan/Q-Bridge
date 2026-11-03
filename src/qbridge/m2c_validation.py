@@ -119,10 +119,10 @@ def evaluate(
             seed=seed * 100_003 + trial,
         )
         candidate = int(guard60["candidate_index"])
-        prob = float(guard60["posterior_probability_better"])
+        prob = guard60["posterior_probability_better"]
         gain = float(guard60["expected_gain"])
         can_switch = candidate != incumbent and gain > 1e-10
-        idx75 = candidate if (can_switch and prob >= 0.75) else incumbent
+        idx75 = candidate if (can_switch and prob is not None and prob >= 0.75) else incumbent
 
         # Original M2B fully-robust baseline. Same simulated shots, different
         # prior and resulting allocation, with identical risk threshold 75%.
@@ -165,8 +165,8 @@ def evaluate(
                 "true_local_a": float(truth[0]),
                 "true_local_b": float(truth[1]),
                 "true_remote": float(truth[2]),
-                # 0.5 from current guard when no switch is proposed is a
-                # placeholder: omit it instead of calling it '50% evidence'.
+                # No probability is estimated when no meaningful switch is
+                # proposed. Never report missing evidence as a numeric 50%.
                 "posterior_probability_better": (
                     prob if (can_switch and policy in {
                         "adaptive_original_guard60", "adaptive_original_guard75"}) else None

@@ -98,7 +98,8 @@ def test_guard_uses_only_posterior_and_can_reject():
     x = guarded_placement(m, posterior, incumbent, minimum_probability=.75, seed=30)
     assert x["chosen_index"] == incumbent
     assert not x["switched"]
-    assert 0 <= x["posterior_probability_better"] <= 1
+    assert x["posterior_probability_better"] is None
+    assert "no switch probability was estimated" in x["reason"]
 
 
 def test_benchmark_is_paired_deterministic_and_budget_fair():

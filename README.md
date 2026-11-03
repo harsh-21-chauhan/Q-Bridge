@@ -4,7 +4,7 @@
 
 Q-Bridge investigates how to spend a limited calibration budget before assigning a quantum circuit's qubits to two processors. Python computes which error sources to measure, updates Bayesian beliefs, and evaluates placements under uncertainty.
 
-**Simulation-only research prototype.** M1, M2A, M2B and M2C research are complete. The selected method is adaptive EVSI with the original Beta priors and an optional 60% placement-switch guard. Production integration, FastAPI, React and the Meta research assistant are the next development stage; they are not implemented yet.
+**Simulation-only research prototype.** M1, M2A, M2B and M2C research and the scientific production interface are complete. The selected method is adaptive EVSI with the original Beta priors and an optional 60% placement-switch guard. FastAPI and React are next; hosted Meta Muse Spark integration is deferred until those stages are complete and real-call testing is explicitly authorized.
 
 ## Selected scientific method
 
@@ -14,7 +14,7 @@ Q-Bridge investigates how to spend a limited calibration budget before assigning
 4. Choose the placement with the lowest posterior expected task loss.
 5. Optionally accept a change only when its expected improvement is positive and its sampled posterior probability of improvement is at least 60%.
 
-The finalized policy is `adaptive_original_guard60` in `src/qbridge/m2c_validation.py`. The adaptive engine must receive `default_as_mixtures()` explicitly to use the original priors. The historical M2B demo uses mixture priors and a 75% guard; it is not the selected product default. A dedicated production wrapper is still pending.
+The production wrapper in `src/qbridge/production.py` implements the finalized `adaptive_original_guard60` policy using existing scientific functions and explicitly selects the original priors. It returns complete calibration evidence and keeps simulator evaluation separate. The historical M2B demo uses mixture priors and a 75% guard; it is not the selected product default. See the [scientific interface contract](docs/SCIENTIFIC_INTERFACE.md) for Python usage, output fields and validation.
 
 See the [final scientific decision](docs/QBridge-M2C-final-decision.md) for the rationale and limitations.
 
@@ -33,7 +33,15 @@ python -m pytest -q
 
 On Windows, activate with `.venv\Scripts\activate`. If you already use the project's Conda environment, run `conda activate qbridge` instead of creating another environment.
 
-Inspect the circuit and run a small M2C comparison containing the finalized policy:
+Run a complete final-method experiment (optional output must be a new file):
+
+```bash
+python -m qbridge.production --family layered --qubits 6 --shots 100 --seed 42 --output results/production/seed42.json
+```
+
+Add `--unguarded` to disable the placement guard, or omit `--output` to print JSON only. The output includes initial/candidate/final placements, stage-by-stage Bayesian updates and EVSI choices, shot accounting, guard evidence and a separate simulator-only evaluation. No model or API key is needed.
+
+Inspect the circuit and run a small historical M2C comparison:
 
 ```bash
 python -m qbridge.cli inspect --family layered --qubits 6
@@ -54,7 +62,7 @@ python -m qbridge.cli validate-aer --family layered --qubits 6
 python -m pytest -q
 ```
 
-The cleanup baseline passed all 38 tests, including both Aer checks. Without the optional Aer dependencies, those two tests are skipped. The scientific implementation and existing tests were preserved during cleanup.
+The cleanup baseline passed all 38 tests, including both Aer checks. The production suite adds archived M2C equivalence checks, exact budget/posterior checks, truthful guard reporting, reproducibility and simulator-truth isolation. Without the optional Aer dependencies, the two Aer tests are skipped.
 
 ## Repository layout
 
@@ -103,6 +111,6 @@ Historical guides remain available: [M1 walkthrough](docs/M1_WALKTHROUGH.md), [M
 
 ## Next development stage
 
-Integrate the frozen method into a tested production wrapper, then add FastAPI/local experiment persistence, a React research dashboard, and a real Meta tool-calling assistant. Python will calculate all scientific results; the assistant will retrieve, compare and explain those results. API credentials will stay server-side. No model integration or paid API call has been verified in this repository yet.
+The scientific production wrapper is implemented. Next add FastAPI/local experiment persistence, then the React research dashboard. Hosted Meta Muse Spark integration follows those stages, using Python tools to retrieve, compare and explain scientific results. Real API calls require explicit testing authorization. See the [development order and saved Meta requirements](docs/DEVELOPMENT_PLAN.md); no Meta integration or real model call has been implemented or performed.
 
 The [repository audit](docs/REPOSITORY_AUDIT.md) is a maintenance record of inspection and cleanup, not a second project README. Further research ideas and application architecture will be documented as development proceeds.
