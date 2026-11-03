@@ -1,0 +1,1219 @@
+{
+  "schema_version": 1,
+  "cleanup_date": "2026-11-04",
+  "baseline_commit": "50fa52dbfa28dd7bee2088a9fd422fabdd8bd852",
+  "note": "Canonical content is stored once. Original archives were repacked without standalone summaries/examples or verified prefix duplicates. All 130 original JSON/CSV artifacts are exactly recoverable. Original ZIP bytes remain in Git history at baseline_commit.",
+  "original_archives": [
+    {
+      "path": "results/QBridge-M2-Diagnostic-Results.zip",
+      "sha256": "621854fa291a4ce0c065b03ba2c1fee94e960c45717f8185ee1b754749d0873e",
+      "bytes": 642287,
+      "members": 19
+    },
+    {
+      "path": "results/QBridge-M2B-Results.zip",
+      "sha256": "808aca53a7df7081fb1f7b59e90b56e5a01b650a01ac4a1c011423e12d46325c",
+      "bytes": 185505,
+      "members": 16
+    },
+    {
+      "path": "results/QBridge-M2C-full-runs100.zip",
+      "sha256": "37a5eb60047969947a2b3e29548943e50fab61c0ee2b7cff6dbfc2a30ee8c51b",
+      "bytes": 1225136,
+      "members": 81
+    },
+    {
+      "path": "results/QBridge-M2C-quick-runs30.zip",
+      "sha256": "fe8dbbb83bdc9e915f347bd9ffffbf97ee83af5f9d11fbfee20c1d0881eeb781",
+      "bytes": 65507,
+      "members": 13
+    }
+  ],
+  "archives": [
+    {
+      "path": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+      "sha256": "7fc5472c715e36fc495667fee14ddde021ba6eaa0c3dd462cb1f3ba08e211f1b",
+      "bytes": 626814,
+      "members": 18
+    },
+    {
+      "path": "research/evidence/QBridge-M2B-Results.zip",
+      "sha256": "d7ef933135a26adfb6e2764be57736b14f2857596c4c252bacde11c9256abec1",
+      "bytes": 170789,
+      "members": 13
+    },
+    {
+      "path": "research/evidence/QBridge-M2C-full-runs100.zip",
+      "sha256": "f977d767e739b717327abf5ecc5b5d2e2cce86c121169d253bb2201ad46a00dd",
+      "bytes": 1178774,
+      "members": 80
+    }
+  ],
+  "artifacts": [
+    {
+      "original_path": "results/demo_seed42.json",
+      "sha256": "152e1980b85bed711899a309e01765b9b3e9c527034fa866141e10eb3affa2d9",
+      "bytes": 684,
+      "storage": {
+        "file": "research/examples/m1-demo-seed42.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_link_shift.csv",
+      "sha256": "97a904f7587f78867f33e4eedcaa978ee1a02116daf4074ccb0ca3a25125c29c",
+      "bytes": 1965368,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_link_shift.csv"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_link_shift.json",
+      "sha256": "046e40840e2a2b80c7ca74fdb05481d61315d98086cb1879932dd523bcc25818",
+      "bytes": 17717,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_link_shift.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_link_shift.terminal.json",
+      "sha256": "8bb8c3bc45e43c5f69fb0587dfc44c25ade5de7a306471b30665086449c88cb3",
+      "bytes": 5428,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_link_shift.terminal.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_local_shift.csv",
+      "sha256": "5f45d20c78d0284891c12149efc019a99336bdff5a304b4264f5ac56e4c05001",
+      "bytes": 2077670,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_local_shift.csv"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_local_shift.json",
+      "sha256": "892ce46db927efac39e48c2212503c52822e867bf1234a79dbe38d6747cb5534",
+      "bytes": 18006,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_local_shift.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_local_shift.terminal.json",
+      "sha256": "a057a1e7e181a07c424175153bd755e72b27b4b808c7d226cb552c217ce3c540",
+      "bytes": 5548,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_local_shift.terminal.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_prior.csv",
+      "sha256": "62951d81f32a73db0cd07cd2cf332f3a73f5471dd68444cf828bc8f4e216f80f",
+      "bytes": 2003134,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_prior.csv"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_prior.json",
+      "sha256": "3ea53231c0746f653c0e0cdb9b3f79bca58020863bab2e762d1d4cd7e2bcf61f",
+      "bytes": 18229,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_prior.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_prior.terminal.json",
+      "sha256": "8cdbe67473ed4a9ae118266e508ddc6a8c70a9b26c8b1296679d6980d34abf12",
+      "bytes": 5567,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_prior.terminal.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_shifted.csv",
+      "sha256": "6057f829fb50c568297574518c4807c1f40faf4e453121e8f15ce664d9e59af2",
+      "bytes": 1951618,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_shifted.csv"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_shifted.json",
+      "sha256": "fef13d25b38d55d6836dea677ad927fb75ff01e0675401ebcb52859688e766f2",
+      "bytes": 18061,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_shifted.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered12_shifted.terminal.json",
+      "sha256": "a28b023f317ccf54eecb50d50c5e918426ce61366ffd78191d0d405e53275267",
+      "bytes": 5477,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered12_shifted.terminal.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered6_prior.csv",
+      "sha256": "da079d45ef0d26153dbd16aa628f31a00bb255d34ac3edf91b0127595ad9b840",
+      "bytes": 1870922,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered6_prior.csv"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered6_prior.json",
+      "sha256": "05d6cf5c6b59372e2d436dc67dcd59ffce60fba9a677c15e63c7d939dedd920d",
+      "bytes": 17902,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered6_prior.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered6_prior.terminal.json",
+      "sha256": "85603ab4f7d1ddd78cd96ca3fafe4453ef5df24d9b9c7874447b2269539df4fa",
+      "bytes": 5552,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered6_prior.terminal.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered6_shifted.csv",
+      "sha256": "784e51fb5ddede980e4c865fe67e83d43a945820c79ab87f9f9e8a4e4a54b245",
+      "bytes": 1829477,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered6_shifted.csv"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered6_shifted.json",
+      "sha256": "c444cafbbfe6751a16f7f6dd3327bfc659bfecc30c507312dff3e975be3a406b",
+      "bytes": 17569,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered6_shifted.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/layered6_shifted.terminal.json",
+      "sha256": "ae341e5a248f149c9d928821d17580950f36cdecfffb92482621800a72724be3",
+      "bytes": 5468,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2-Diagnostic-Results.zip",
+        "member": "diagnostics/layered6_shifted.terminal.json"
+      }
+    },
+    {
+      "original_path": "results/diagnostics/summary.csv",
+      "sha256": "96ccb2321ad304c5407783c6c358cc1cdb318cf53a8bbc503f061b3b3618e1e1",
+      "bytes": 2826,
+      "storage": {
+        "file": "research/summaries/m2-diagnostics-summary.csv"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered12_link_shift.csv",
+      "sha256": "0941ff659b2d6601391d5b502cb764f24f8e70c8fc9ce105252477e67be0d9f0",
+      "bytes": 413875,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered12_link_shift.csv"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered12_link_shift.json",
+      "sha256": "24b1b4a2f31dde9f2fbd68791d4dd0d3aaa53c801b5a354c86f318474686fd4a",
+      "bytes": 3775,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered12_link_shift.json"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered12_local_shift.csv",
+      "sha256": "6e96573bf5d712ad1b6eb6892df486338a0d5eeb43453433655b901c914fcbcf",
+      "bytes": 419400,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered12_local_shift.csv"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered12_local_shift.json",
+      "sha256": "11916ac5bd16e7466992871b7211aa72c61623aa85ae197144192d62dd4a086b",
+      "bytes": 3774,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered12_local_shift.json"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered12_prior.csv",
+      "sha256": "4aa54280fbb6ca31e4006f017ed3ff0c0d5010dd2e1ab66bdf57146bd3ae34a9",
+      "bytes": 413920,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered12_prior.csv"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered12_prior.json",
+      "sha256": "06e1c93b5d866870dc2643623aabeae694d1048ef9fac3044816470dc6ba9e75",
+      "bytes": 3762,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered12_prior.json"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered12_shifted.csv",
+      "sha256": "3d8b0874f1fea9be750234d4c9eb46257ddc483ceaf56683c9cddff510f7143f",
+      "bytes": 412323,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered12_shifted.csv"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered12_shifted.json",
+      "sha256": "d85a96a8c369cc473cc2bb742974c970ac6159dff1c6e219682df0be2d95ba51",
+      "bytes": 3765,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered12_shifted.json"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered6_prior.csv",
+      "sha256": "542c86fd8f893add8c95861f43bd07b2557498ff282c9d234157a4e747d23d59",
+      "bytes": 407025,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered6_prior.csv"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered6_prior.json",
+      "sha256": "8c7ea86384c8ccfffd13307183e4deaacd788413ea55c2eb2de618dec4c47c68",
+      "bytes": 3775,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered6_prior.json"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered6_shifted.csv",
+      "sha256": "6ab1a5d71aa3731adbf07eda5a8281081994727ca189e5b6cf1e52df484628c1",
+      "bytes": 405023,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered6_shifted.csv"
+      }
+    },
+    {
+      "original_path": "results/m2b/layered6_shifted.json",
+      "sha256": "e85ae1308148b4c1cc13796c618f84909143451713700408c88df9f8743f35c9",
+      "bytes": 3770,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/layered6_shifted.json"
+      }
+    },
+    {
+      "original_path": "results/m2b/quick_check.csv",
+      "sha256": "4871935b3d2b96e038a307b6849fc59000eb5b26b5e993f70e80e32e39640608",
+      "bytes": 81289,
+      "storage": {
+        "prefix_of": "results/m2b/layered6_shifted.csv",
+        "bytes": 81289,
+        "rows": 140
+      }
+    },
+    {
+      "original_path": "results/m2b/quick_check.json",
+      "sha256": "1d7387f84b320a5ffe8698658d23d6c90768740259003bff32e7f78eb8878742",
+      "bytes": 3725,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2B-Results.zip",
+        "member": "m2b/quick_check.json"
+      }
+    },
+    {
+      "original_path": "results/m2b/single_demo.json",
+      "sha256": "3640ec90b42517708cda1cbe0d82fd186b172336d5a7d7059a872a95790f37c0",
+      "bytes": 2191,
+      "storage": {
+        "file": "research/examples/m2b-mixture-guard75-demo.json"
+      }
+    },
+    {
+      "original_path": "results/m2b/summary.csv",
+      "sha256": "fe9cbac1a1739021a8c7f5323f004c0f522961e431f5aea31a6cac973968566e",
+      "bytes": 8783,
+      "storage": {
+        "file": "research/summaries/m2b-summary.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_prior_shots100_runs100_seed20261104.csv",
+      "sha256": "ae6f5501204927bdbf0dcf5de338ec13299f096fa315f7237706dde011ab903b",
+      "bytes": 515627,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_prior_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_prior_shots100_runs100_seed20261104.json",
+      "sha256": "a2ff56d975a9ece16793dc3657879c69759dfa13fda8bcfcb796a6dbb409e9b6",
+      "bytes": 4180,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_prior_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_prior_shots200_runs100_seed20261104.csv",
+      "sha256": "5b496e3db799449b9986a07fedcd69d1cf953a30e7d73d416cae19ccc6549d6d",
+      "bytes": 517236,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_prior_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_prior_shots200_runs100_seed20261104.json",
+      "sha256": "151ccbd75f74ce29c410e4f62c5cc4e4533d1835956c2a7a9091afc1aafc2460",
+      "bytes": 4188,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_prior_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_prior_shots50_runs100_seed20261104.csv",
+      "sha256": "0f1711017dc03e33ff79772ff5e936cff638b75dfd9110872a27b1ecb1b46189",
+      "bytes": 510089,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_prior_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_prior_shots50_runs100_seed20261104.json",
+      "sha256": "4c8de5b19321bc20f30046adb1756016e2e1db373e4a0a4eaab4f62dae8999af",
+      "bytes": 4133,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_prior_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_shifted_shots100_runs100_seed20261104.csv",
+      "sha256": "7db2c73bad2bb1706eb329ccad0f7aa6befdd15c99d0e952a05ddd456dabb56b",
+      "bytes": 514122,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_shifted_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_shifted_shots100_runs100_seed20261104.json",
+      "sha256": "7f2e2e1d0782cab654c4c88564030df88e6c3a15adf7ee9dd4c2d1eb209fc328",
+      "bytes": 4064,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_shifted_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_shifted_shots100_runs30_seed20261104.csv",
+      "sha256": "2414f7e7f16f7f7de26ccdf273fefc4b2f91b5ecadcb1b38a89187ef7870c857",
+      "bytes": 154101,
+      "storage": {
+        "prefix_of": "results/m2c/ghz12_shifted_shots100_runs100_seed20261104.csv",
+        "bytes": 154101,
+        "rows": 240
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_shifted_shots100_runs30_seed20261104.json",
+      "sha256": "810e6c32f0d5ba2e00fa37884893e2171293c11d696f8864b9d4503920867b03",
+      "bytes": 3694,
+      "storage": {
+        "file": "research/summaries/m2c-quick/ghz12_shifted_shots100_runs30_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_shifted_shots200_runs100_seed20261104.csv",
+      "sha256": "93ca450dbb03aecf3ba62184c273bbacde2dfa0bfdf45b33588912ce355db6f2",
+      "bytes": 514141,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_shifted_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_shifted_shots200_runs100_seed20261104.json",
+      "sha256": "447d43ae4a655f589067f2b4bae36230eb7cbaa4c9b8c6105b4340bbc977a885",
+      "bytes": 3881,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_shifted_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_shifted_shots50_runs100_seed20261104.csv",
+      "sha256": "0d7ed060fb218ef048e9a466dd7af410d0ee70f9c29b15bfeca2b361601d950b",
+      "bytes": 510323,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_shifted_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz12_shifted_shots50_runs100_seed20261104.json",
+      "sha256": "cdd36ceb9da43c2951fcc2646443e5efb5e923a540bfb19240a1c023df768ff9",
+      "bytes": 3959,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz12_shifted_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_prior_shots100_runs100_seed20261104.csv",
+      "sha256": "6e865a840655bb56b681d536f9e1b19f09c83a74c48d4715a628ed151e5ccc1e",
+      "bytes": 512648,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_prior_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_prior_shots100_runs100_seed20261104.json",
+      "sha256": "da82cc16e100ceb9254e62d36fc900162d4eaac183352b4397f09142ca72150d",
+      "bytes": 4189,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_prior_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_prior_shots100_runs30_seed20261104.csv",
+      "sha256": "b765e3811fd14aeeb0fdb27c7207b6d094e5481f80d337ac24c0b4ad33272a30",
+      "bytes": 153699,
+      "storage": {
+        "prefix_of": "results/m2c/ghz6_prior_shots100_runs100_seed20261104.csv",
+        "bytes": 153699,
+        "rows": 240
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_prior_shots100_runs30_seed20261104.json",
+      "sha256": "15aef7af334e5e7df3ef93104921c3b5cf7dd5dd953caeeba9aea9dfdb20f57e",
+      "bytes": 4223,
+      "storage": {
+        "file": "research/summaries/m2c-quick/ghz6_prior_shots100_runs30_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_prior_shots200_runs100_seed20261104.csv",
+      "sha256": "153ede4acc7765a2ecf7dc59392789038399905d064fa5e1632ad446f257b30e",
+      "bytes": 511847,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_prior_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_prior_shots200_runs100_seed20261104.json",
+      "sha256": "730f35304e07f354a1eb377f9056672a0b5db80cb7254df2b500a1a9d1e5b014",
+      "bytes": 4193,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_prior_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_prior_shots50_runs100_seed20261104.csv",
+      "sha256": "5636b8c83c33f99f77a1cb09b1d0015b36d270c7d3ce33a5df5498b0200f4b74",
+      "bytes": 503802,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_prior_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_prior_shots50_runs100_seed20261104.json",
+      "sha256": "b29342059d358859aeac5e9450e407e954b246535aa6c850e82fafe96561a8c6",
+      "bytes": 4108,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_prior_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_shifted_shots100_runs100_seed20261104.csv",
+      "sha256": "74d50a6b6297fd7b2aa98774cab19c560d7814941810486211dd7dfaeecba77d",
+      "bytes": 508623,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_shifted_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_shifted_shots100_runs100_seed20261104.json",
+      "sha256": "5848a2a2b90aa6bca338f7224f66dde8fba2a92e4c30027c1f1dba371a080b50",
+      "bytes": 3932,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_shifted_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_shifted_shots200_runs100_seed20261104.csv",
+      "sha256": "cafac6605d5aa5a896d37322b92dab72a265fdff8e84957c3e0f7062aeb9d317",
+      "bytes": 507742,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_shifted_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_shifted_shots200_runs100_seed20261104.json",
+      "sha256": "d08a3971d6e638fdb057b473ab55ee5f3bc0f11b216d4d660ad7caa9647041ad",
+      "bytes": 3769,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_shifted_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_shifted_shots50_runs100_seed20261104.csv",
+      "sha256": "f2497dbe163ffc52b723d6eadb2e66f55a90768da563ffb8917671a3c5c6d8eb",
+      "bytes": 504367,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_shifted_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/ghz6_shifted_shots50_runs100_seed20261104.json",
+      "sha256": "4535d51dacdb8bd95b6238a8965825813fec267f782eb67aebf6ccab56f9e231",
+      "bytes": 3819,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/ghz6_shifted_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_link_shift_shots100_runs100_seed20261104.csv",
+      "sha256": "488aee9c5437a1ca4586d3538a188659aa8b171e561ec7a7204f962609134742",
+      "bytes": 526677,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_link_shift_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_link_shift_shots100_runs100_seed20261104.json",
+      "sha256": "655e33aaa1900fe7408ea2519f5265fb8bf64c401c599687a5e8f52fc3c02e0c",
+      "bytes": 4182,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_link_shift_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_link_shift_shots200_runs100_seed20261104.csv",
+      "sha256": "b9ac61a5c76edfe30e317b1e5ce021f6e5ba33388bb1b8926020b3e77b81157b",
+      "bytes": 524789,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_link_shift_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_link_shift_shots200_runs100_seed20261104.json",
+      "sha256": "6c8a61a27a9216850860233f3d87833a2d04f7615e4c823bf082123388daaaba",
+      "bytes": 4150,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_link_shift_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_local_shift_shots100_runs100_seed20261104.csv",
+      "sha256": "866476eb9f2d150114202f12d4a068b58c92efceea9bca16382134971a337683",
+      "bytes": 533810,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_local_shift_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_local_shift_shots100_runs100_seed20261104.json",
+      "sha256": "e5815ffc8e4eb58c6e327ccd6f56eba80c53ad248c60663dbfffed55db495de4",
+      "bytes": 4171,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_local_shift_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_local_shift_shots200_runs100_seed20261104.csv",
+      "sha256": "334fec9917d9aae92bab612e6c31d1b985ce3589bca9553ef69c13c57f50415b",
+      "bytes": 533138,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_local_shift_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_local_shift_shots200_runs100_seed20261104.json",
+      "sha256": "19e03d3e22d0be386052bbf97f55d2ad1586b499970123c04dbc31a488fef5cb",
+      "bytes": 4159,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_local_shift_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_prior_shots100_runs100_seed20261104.csv",
+      "sha256": "d8e2373018ade3c8e1002cf285aba67b6f83a211a399a923eb3fbdcca6c42017",
+      "bytes": 526510,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_prior_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_prior_shots100_runs100_seed20261104.json",
+      "sha256": "93f1b8f46a1a5cb1c9728c2598f267e5d5293111654cff7efb20933901be5900",
+      "bytes": 4164,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_prior_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_prior_shots200_runs100_seed20261104.csv",
+      "sha256": "45fcd9e733e1960f82454e114bbf86b7642e4e205b75506879c2e3dc50f9cbf8",
+      "bytes": 526235,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_prior_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_prior_shots200_runs100_seed20261104.json",
+      "sha256": "e53a460bb1d6bf69ce504b7388e2ed6f88c268162a1115b01883febd4ec66f04",
+      "bytes": 4175,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_prior_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_prior_shots50_runs100_seed20261104.csv",
+      "sha256": "3221bafaa87f9f3212f0c56fbd8e6937d2bd55717f91a65801415ea0aacf7ffe",
+      "bytes": 522307,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_prior_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_prior_shots50_runs100_seed20261104.json",
+      "sha256": "7e9bca724ce4b16c018e85c5f65050b6f9eecc7da0efb31384968dd8ac359565",
+      "bytes": 4173,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_prior_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_shifted_shots100_runs100_seed20261104.csv",
+      "sha256": "d38ff1584e0c8e97b19ce5c6d834e19a497b8d2e215523b27394a4c6271835fc",
+      "bytes": 523733,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_shifted_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_shifted_shots100_runs100_seed20261104.json",
+      "sha256": "2a31e64ee07020a51b514d2ed7e8af81b953918cd173da376a00512887f5731c",
+      "bytes": 4188,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_shifted_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_shifted_shots100_runs30_seed20261104.csv",
+      "sha256": "91201cd031c2594981bd600ac46130394ae407776dafbea4c3782ee04cb9ff52",
+      "bytes": 157669,
+      "storage": {
+        "prefix_of": "results/m2c/layered12_shifted_shots100_runs100_seed20261104.csv",
+        "bytes": 157669,
+        "rows": 240
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_shifted_shots100_runs30_seed20261104.json",
+      "sha256": "7a8df3146fb9093facc4cd164c7470e57d5d4aedfb8c7fbacb88c56a52a28857",
+      "bytes": 4405,
+      "storage": {
+        "file": "research/summaries/m2c-quick/layered12_shifted_shots100_runs30_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_shifted_shots200_runs100_seed20261104.csv",
+      "sha256": "434ce2f709c5f8ff007b43e34d455b1aff28773aa6f8fc27369d9d9624460c09",
+      "bytes": 523054,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_shifted_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_shifted_shots200_runs100_seed20261104.json",
+      "sha256": "25926f83b6d378ec3405b939b48ffccfcfc38fc8f97da271d03b22da8e41ad41",
+      "bytes": 4178,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_shifted_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_shifted_shots50_runs100_seed20261104.csv",
+      "sha256": "335db4301584b876cb3ca00798ceb000ade422551fa5dfaaee7124aa655d2bce",
+      "bytes": 520215,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_shifted_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered12_shifted_shots50_runs100_seed20261104.json",
+      "sha256": "4700776bab9097c51bf2011230e3659be332e1f3731c910f17c4d32b13ebf8ce",
+      "bytes": 4175,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered12_shifted_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_prior_shots100_runs100_seed20261104.csv",
+      "sha256": "88f8dca68dd0e4740016d6f038ca764c37e19e2a25ae26cf7e7e151c77e79a49",
+      "bytes": 517623,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_prior_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_prior_shots100_runs100_seed20261104.json",
+      "sha256": "a75845cb7d32df845de596d86c493bda7b8f2bef4e1f19057c3b9c62dce48ec8",
+      "bytes": 4171,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_prior_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_prior_shots100_runs30_seed20261104.csv",
+      "sha256": "488aa9e581b031aef312839c76a78135cf71db3bbe761a5a8a9a292f8d589cc3",
+      "bytes": 155187,
+      "storage": {
+        "prefix_of": "results/m2c/layered6_prior_shots100_runs100_seed20261104.csv",
+        "bytes": 155187,
+        "rows": 240
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_prior_shots100_runs30_seed20261104.json",
+      "sha256": "6c780d3f6f4f52a88a9e731a9a52359cc6969958070b777cafa38021fedc1cbb",
+      "bytes": 4217,
+      "storage": {
+        "file": "research/summaries/m2c-quick/layered6_prior_shots100_runs30_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_prior_shots200_runs100_seed20261104.csv",
+      "sha256": "60f6819a75116b0c24e1b6107409f1c5273ae380ec602bc4afeff9b497941ad0",
+      "bytes": 516538,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_prior_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_prior_shots200_runs100_seed20261104.json",
+      "sha256": "eec045b8caaf7551c7059ff08488abe29834d4b854003512d4f67a1bcce399b5",
+      "bytes": 4185,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_prior_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_prior_shots50_runs100_seed20261104.csv",
+      "sha256": "84f8d327a995bc860d9dba730e9f2a28e5f34f18c80d3dad3cbc8d12c1685c2b",
+      "bytes": 511508,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_prior_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_prior_shots50_runs100_seed20261104.json",
+      "sha256": "3a7d9315e2c1c49605cee2a7de4181c170e20e6179751153b2240721e1c89eb9",
+      "bytes": 4170,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_prior_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_shifted_shots100_runs100_seed20261104.csv",
+      "sha256": "534dc64b5232a1317d46b69bcc35da6b2f41b81be6c0ef524dc9d56260820dc2",
+      "bytes": 515572,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_shifted_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_shifted_shots100_runs100_seed20261104.json",
+      "sha256": "989e30f6d935c08be99600e7310fc02275870db3a8fef8fc4619932cb3126fb8",
+      "bytes": 4188,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_shifted_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_shifted_shots200_runs100_seed20261104.csv",
+      "sha256": "87f7b89378d3b4743d3a3d8bb115b7080dfd20908db7d86e46e9c6f9636acd42",
+      "bytes": 514009,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_shifted_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_shifted_shots200_runs100_seed20261104.json",
+      "sha256": "084f0f3f72fb5ef2af82ba4dc9e1e657e5ffedc4e2647fdd65a883b8873f35c0",
+      "bytes": 4179,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_shifted_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_shifted_shots50_runs100_seed20261104.csv",
+      "sha256": "7931eb1d608bfe78ca9a18877086d84d6d5429af1c8a21dbf3c5468e6b3c680e",
+      "bytes": 512062,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_shifted_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/layered6_shifted_shots50_runs100_seed20261104.json",
+      "sha256": "8e85a320c0080e2e2f5804b47d1d4214aa21f365fef9f157336edfc14994fd16",
+      "bytes": 4111,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/layered6_shifted_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_prior_shots100_runs100_seed20261104.csv",
+      "sha256": "f7064384508d999ee1475d17245ec7de4f7c8e88732d7d5b662cb0aeb3ac5bb0",
+      "bytes": 522810,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_prior_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_prior_shots100_runs100_seed20261104.json",
+      "sha256": "90f7c01cb93da56a0dd30582e2a14c8eaee9ec429e120436af123ae3d61548a9",
+      "bytes": 4175,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_prior_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_prior_shots200_runs100_seed20261104.csv",
+      "sha256": "198d7e8d6d39db6886e3a2475d9d828cd52c4a638496811432c4f470a06aaf8e",
+      "bytes": 522812,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_prior_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_prior_shots200_runs100_seed20261104.json",
+      "sha256": "e848e9f5dba0cbbcf93349c294e9ab9c2251c88fb897a7e899133b379cf62088",
+      "bytes": 4185,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_prior_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_prior_shots50_runs100_seed20261104.csv",
+      "sha256": "821de129fb28eb71cc2722cba5cb19eabec1fa64ecbc840ea7cf7b93c2e5ddd5",
+      "bytes": 517466,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_prior_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_prior_shots50_runs100_seed20261104.json",
+      "sha256": "70ef85066dbfe5d7f09492bf4c282fdf0c6c39dbfad0e0a5e68bf668d9942520",
+      "bytes": 4186,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_prior_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_shifted_shots100_runs100_seed20261104.csv",
+      "sha256": "d4717d1096cc261857a06edbcf34d837112bd457b2cbab34a5a1e6ba83ad2c3e",
+      "bytes": 522341,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_shifted_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_shifted_shots100_runs100_seed20261104.json",
+      "sha256": "8a58c9e5bdfe0f8c6a979baa68f4795e9488e5170c9f875f44852ef1882fd915",
+      "bytes": 4182,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_shifted_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_shifted_shots100_runs30_seed20261104.csv",
+      "sha256": "fd7e19378188acaa053847ca85bce3e76267bd9c561f2fcba1f79d4a473d1345",
+      "bytes": 156974,
+      "storage": {
+        "prefix_of": "results/m2c/star12_shifted_shots100_runs100_seed20261104.csv",
+        "bytes": 156974,
+        "rows": 240
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_shifted_shots100_runs30_seed20261104.json",
+      "sha256": "05be0cf4e4c21ec89f9583e2513d8d6479276db280ca5922e218d685e6382daa",
+      "bytes": 4362,
+      "storage": {
+        "file": "research/summaries/m2c-quick/star12_shifted_shots100_runs30_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_shifted_shots200_runs100_seed20261104.csv",
+      "sha256": "e8908b76b20f17382c0b4bd942f03389cc447c30f3c8fa38072766968842e558",
+      "bytes": 521752,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_shifted_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_shifted_shots200_runs100_seed20261104.json",
+      "sha256": "8cc02b6f7ba737f4516fbc84ad6a88b93ea4c681934c9844b8b7415214397629",
+      "bytes": 4181,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_shifted_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_shifted_shots50_runs100_seed20261104.csv",
+      "sha256": "62d8eada0fcf91d6cf6f49d18bf0f01d51deeedbf31633664f7a199a0958c491",
+      "bytes": 519280,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_shifted_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star12_shifted_shots50_runs100_seed20261104.json",
+      "sha256": "9925a036d9af2fc6c48d62b3436259e204b5f4e82a8d70b6b67f04578de8d231",
+      "bytes": 4110,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star12_shifted_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_prior_shots100_runs100_seed20261104.csv",
+      "sha256": "9533fb38397306ef04668bf17bfcd3fe688984acb731cea71ca318b56a70a70a",
+      "bytes": 515101,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_prior_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_prior_shots100_runs100_seed20261104.json",
+      "sha256": "9517b842243598226c2c916f7b23fe8ba56fab3b866a7742eec380560666885a",
+      "bytes": 4183,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_prior_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_prior_shots100_runs30_seed20261104.csv",
+      "sha256": "4471a2b23f8168d9ff93e171925ff88851c0c9dc1e5c0b15f0d76d260292b259",
+      "bytes": 154189,
+      "storage": {
+        "prefix_of": "results/m2c/star6_prior_shots100_runs100_seed20261104.csv",
+        "bytes": 154189,
+        "rows": 240
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_prior_shots100_runs30_seed20261104.json",
+      "sha256": "8cadac853c6f1353cf39f18f803ba40fa56b583cfbc209cbfe06575afe9f2e36",
+      "bytes": 4234,
+      "storage": {
+        "file": "research/summaries/m2c-quick/star6_prior_shots100_runs30_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_prior_shots200_runs100_seed20261104.csv",
+      "sha256": "3602a776456f0475683a2862d6d02f07b0eb51e575845b837de0e9e7412b67cf",
+      "bytes": 514284,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_prior_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_prior_shots200_runs100_seed20261104.json",
+      "sha256": "c5a66de0ce1b7cd900ce58de63393e48178139e3d90561b69342d8ccb5c66243",
+      "bytes": 4187,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_prior_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_prior_shots50_runs100_seed20261104.csv",
+      "sha256": "0d7573d5ca48c04f71ec9bd6512bbda94c3a78b528e8bf9a8619ab1da07ab0e8",
+      "bytes": 509451,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_prior_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_prior_shots50_runs100_seed20261104.json",
+      "sha256": "a2c53d5be75b15122e527b8a93a7abf652063093df853ece3e5fbe11c272ee39",
+      "bytes": 4175,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_prior_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_shifted_shots100_runs100_seed20261104.csv",
+      "sha256": "fbf0530deead787eb9fce33efd30f1ab71b23919418d69d2755bb6031370ff56",
+      "bytes": 513428,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_shifted_shots100_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_shifted_shots100_runs100_seed20261104.json",
+      "sha256": "5c2e75d0a6b609441ddd694adbda7ed0e53f97ad2cacde8edd6c6d031e157f96",
+      "bytes": 4182,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_shifted_shots100_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_shifted_shots200_runs100_seed20261104.csv",
+      "sha256": "bbcad8e2b35e8c1be236b3e6fa9157668b23239d56b63fa825fe5f666167dea4",
+      "bytes": 511246,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_shifted_shots200_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_shifted_shots200_runs100_seed20261104.json",
+      "sha256": "2ad51c939a8ab6be54edd2355d57a864a5e4c95cf7f204c5d4c91a8d9778e3cd",
+      "bytes": 4165,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_shifted_shots200_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_shifted_shots50_runs100_seed20261104.csv",
+      "sha256": "575972f2392ebc4f1e7c4f17ef233d6bde328fd9e4b37a186ee7b3b553bfdc76",
+      "bytes": 510093,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_shifted_shots50_runs100_seed20261104.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/star6_shifted_shots50_runs100_seed20261104.json",
+      "sha256": "2b95b5da348dcfcd7b40cbab3a2e7f1c5b5eb1f7efb3f50612a2c7811136f091",
+      "bytes": 4108,
+      "storage": {
+        "archive": "research/evidence/QBridge-M2C-full-runs100.zip",
+        "member": "m2c/star6_shifted_shots50_runs100_seed20261104.json"
+      }
+    },
+    {
+      "original_path": "results/m2c/summary_full_runs100_seed20261104.csv",
+      "sha256": "4b79d6c8548a9af1bce87ade4efde0c33f164fb4c17f5d84cab7667af4c602b0",
+      "bytes": 53248,
+      "storage": {
+        "file": "research/summaries/m2c-final-summary.csv"
+      }
+    },
+    {
+      "original_path": "results/m2c/summary_quick_runs30_seed20261104.csv",
+      "sha256": "847418f3b1333753771f2d8723fa3ad689bbd8033af90e925dabc5af03e8d98c",
+      "bytes": 8465,
+      "storage": {
+        "file": "research/summaries/m2c-quick-summary.csv"
+      }
+    }
+  ]
+}

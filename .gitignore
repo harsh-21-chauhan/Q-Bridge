@@ -1,0 +1,30 @@
+# OS metadata and Python-generated files
+.DS_Store
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local environments and credentials (examples remain versioned)
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Application dependencies and build outputs
+node_modules/
+/frontend/dist/
+/frontend/.vite/
+/build/
+/dist/
+*.log
+
+# Disposable runs; curated evidence under research/ is never ignored.
+/results/*
+!/results/README.md
