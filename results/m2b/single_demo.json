@@ -1,0 +1,112 @@
+{
+  "mode": "SIMULATED quantum calibration (not real hardware)",
+  "circuit": "layered",
+  "qubits": 6,
+  "budget": 100,
+  "seed": 42,
+  "initial_means": [
+    0.02,
+    0.03,
+    0.05
+  ],
+  "calibration_trace": [
+    {
+      "stage": "pilot",
+      "group": "local_a",
+      "shots": 10,
+      "failures": 0,
+      "posterior_mean": 0.016945520438291197,
+      "evsi_at_choice": null
+    },
+    {
+      "stage": "pilot",
+      "group": "local_b",
+      "shots": 10,
+      "failures": 0,
+      "posterior_mean": 0.025399485380315324,
+      "evsi_at_choice": null
+    },
+    {
+      "stage": "pilot",
+      "group": "remote",
+      "shots": 20,
+      "failures": 4,
+      "posterior_mean": 0.09502705110082138,
+      "evsi_at_choice": null
+    },
+    {
+      "stage": "adaptive",
+      "group": "local_a",
+      "shots": 30,
+      "failures": 1,
+      "posterior_mean": 0.021741639920063883,
+      "evsi_at_choice": {
+        "local_a": 0.000324144653422051,
+        "local_b": 7.158756717418058e-07,
+        "remote": 4.163336342344337e-15
+      }
+    },
+    {
+      "stage": "adaptive",
+      "group": "local_b",
+      "shots": 30,
+      "failures": 2,
+      "posterior_mean": 0.0370237742558077,
+      "evsi_at_choice": {
+        "local_a": 0.000374957079316382,
+        "local_b": 0.0006320244696634836,
+        "remote": 4.2049697057677804e-15
+      }
+    }
+  ],
+  "final_posterior_means": [
+    0.021741639920063883,
+    0.0370237742558077,
+    0.09502705110082138
+  ],
+  "used_shots_by_group": [
+    40,
+    40,
+    20
+  ],
+  "original_placement": [
+    0,
+    1,
+    0,
+    0,
+    1,
+    1
+  ],
+  "unguarded_placement": [
+    0,
+    1,
+    0,
+    0,
+    1,
+    1
+  ],
+  "guarded_placement": [
+    0,
+    1,
+    0,
+    0,
+    1,
+    1
+  ],
+  "switch_analysis": {
+    "switched": false,
+    "posterior_probability_better": 0.5,
+    "expected_gain": 0.0,
+    "reason": "No clear positive expected-loss improvement"
+  },
+  "simulator_only_grading": {
+    "true_error_rates": [
+      0.024953638947229902,
+      0.028634323307086613,
+      0.14209602231205853
+    ],
+    "oracle_loss": 0.12754990771091126,
+    "selected_actual_loss": 0.12754990771091126,
+    "decision_regret": 0.0
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "description": "M2B controlled simulator comparison, not physical hardware evidence",
+  "settings": {
+    "family": "layered",
+    "qubits": 12,
+    "runs": 100,
+    "shots": 100,
+    "seed": 271828,
+    "truth_mode": "prior",
+    "guard_threshold": 0.75,
+    "guard_draws": 512,
+    "robust_prior_trust_weight": 0.75,
+    "original_evsi_selection": "local_b",
+    "fixed_split_groups": {
+      "local_b": 50,
+      "remote": 50
+    },
+    "elapsed_seconds": 6.4780379589647055
+  },
+  "policies": {
+    "no_calibration": {
+      "mean_regret": 0.0034062956355596858,
+      "regret_95ci": [
+        0.002371982034055934,
+        0.004553762523842573
+      ],
+      "mean_task_loss": 0.0643080809203984,
+      "switch_rate": 0.0,
+      "help_rate": 0.0,
+      "harm_rate": 0.0
+    },
+    "original_evsi": {
+      "mean_regret": 0.003488355833947507,
+      "regret_95ci": [
+        0.002407135567448082,
+        0.004700087583500874
+      ],
+      "mean_task_loss": 0.06439014111878623,
+      "switch_rate": 0.25,
+      "help_rate": 0.13,
+      "harm_rate": 0.12
+    },
+    "random_calibration": {
+      "mean_regret": 0.002975237968756028,
+      "regret_95ci": [
+        0.002020381729984332,
+        0.004135373808987107
+      ],
+      "mean_task_loss": 0.06387702325359475,
+      "switch_rate": 0.26,
+      "help_rate": 0.15,
+      "harm_rate": 0.11
+    },
+    "fixed_split": {
+      "mean_regret": 0.003378179181640324,
+      "regret_95ci": [
+        0.0023377753765620644,
+        0.004540908462572987
+      ],
+      "mean_task_loss": 0.06427996446647904,
+      "switch_rate": 0.2,
+      "help_rate": 0.11,
+      "harm_rate": 0.09
+    },
+    "adaptive_original_priors": {
+      "mean_regret": 0.0028604014833412163,
+      "regret_95ci": [
+        0.0021239603344420143,
+        0.0036952779014441397
+      ],
+      "mean_task_loss": 0.06376218676817993,
+      "switch_rate": 0.23,
+      "help_rate": 0.13,
+      "harm_rate": 0.1
+    },
+    "adaptive_robust_priors": {
+      "mean_regret": 0.003540106060294893,
+      "regret_95ci": [
+        0.002477781221837054,
+        0.004747527065107887
+      ],
+      "mean_task_loss": 0.06444189134513362,
+      "switch_rate": 0.47,
+      "help_rate": 0.18,
+      "harm_rate": 0.29
+    },
+    "adaptive_robust_guard": {
+      "mean_regret": 0.0027862467216636074,
+      "regret_95ci": [
+        0.001945628266584406,
+        0.0036358734212548834
+      ],
+      "mean_task_loss": 0.06368803200650232,
+      "switch_rate": 0.04,
+      "help_rate": 0.03,
+      "harm_rate": 0.01
+    }
+  },
+  "paired_comparisons": {
+    "no_calibration": {
+      "mean_regret_reduction_vs_original_evsi": 8.206019838782111e-05,
+      "paired_95ci": [
+        -0.0003569762199065478,
+        0.0004970532804801366
+      ]
+    },
+    "random_calibration": {
+      "mean_regret_reduction_vs_original_evsi": 0.0005131178651914786,
+      "paired_95ci": [
+        -4.0390599297780805e-05,
+        0.0012958866892220171
+      ]
+    },
+    "fixed_split": {
+      "mean_regret_reduction_vs_original_evsi": 0.00011017665230718319,
+      "paired_95ci": [
+        -0.0003644057447468751,
+        0.0006016928954009088
+      ]
+    },
+    "adaptive_original_priors": {
+      "mean_regret_reduction_vs_original_evsi": 0.000627954350606291,
+      "paired_95ci": [
+        -0.00018583278399376035,
+        0.0015796587608526806
+      ]
+    },
+    "adaptive_robust_priors": {
+      "mean_regret_reduction_vs_original_evsi": -5.175022634738635e-05,
+      "paired_95ci": [
+        -0.001098383096604716,
+        0.001097278736820219
+      ]
+    },
+    "adaptive_robust_guard": {
+      "mean_regret_reduction_vs_original_evsi": 0.0007021091122838998,
+      "paired_95ci": [
+        2.8545444170733737e-05,
+        0.0014969919123460473
+      ]
+    }
+  }
+}

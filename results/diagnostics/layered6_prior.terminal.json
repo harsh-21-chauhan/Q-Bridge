@@ -1,0 +1,180 @@
+{
+  "settings": {
+    "family": "layered",
+    "qubits": 6,
+    "cx_gates": 10,
+    "placements": 20,
+    "runs": 300,
+    "seed": 123,
+    "shots": [
+      50,
+      100,
+      200,
+      500
+    ],
+    "truth_mode": "prior",
+    "prior_means": {
+      "local_a": 0.02,
+      "local_b": 0.03,
+      "remote": 0.05
+    }
+  },
+  "prior_mismatch": {
+    "local_a": {
+      "mean_abs_z_score": 0.7871679574397401,
+      "outside_prior_95_percent_rate": 0.043333333333333335
+    },
+    "local_b": {
+      "mean_abs_z_score": 0.8193173393079697,
+      "outside_prior_95_percent_rate": 0.03666666666666667
+    },
+    "remote": {
+      "mean_abs_z_score": 0.7478590876117015,
+      "outside_prior_95_percent_rate": 0.05
+    }
+  },
+  "placement_geometry": {
+    "no_calibration_oracle_optimal_rate": 0.5533333333333333,
+    "mean_oracle_regret_no_calibration": 0.002661146328550805,
+    "mean_margin_to_next_distinct_loss": 0.00267361412398947,
+    "fraction_multiple_tied_oracle_placements": 0.0
+  },
+  "perfect_one_parameter_counterfactual": {
+    "local_a": {
+      "placement_change_rate": 0.20333333333333334,
+      "mean_regret_gain_vs_no_cal": 0.0006866972373653247
+    },
+    "local_b": {
+      "placement_change_rate": 0.39,
+      "mean_regret_gain_vs_no_cal": 0.0009356795749668389
+    },
+    "remote": {
+      "placement_change_rate": 0.12,
+      "mean_regret_gain_vs_no_cal": 0.0005033323597805784
+    }
+  },
+  "budgets": {
+    "50": {
+      "evsi_selected": "local_a",
+      "mean_regret": {
+        "evsi": 0.0024241,
+        "random": 0.0026377,
+        "fixed_a": 0.0024241,
+        "max_prior_variance": 0.0026611,
+        "no_calibration": 0.0026611
+      },
+      "evsi_switch_rate": 0.13666666666666666,
+      "evsi_helped_rate": 0.09,
+      "evsi_harmed_rate": 0.04666666666666667,
+      "evsi_unexpected_calibration_outcome_rate": 0.006666666666666667,
+      "evsi_minus_no_cal": {
+        "mean_regret_difference": -0.00023701256156367418,
+        "ci95": [
+          -0.0005567918182062885,
+          6.911403915230616e-05
+        ],
+        "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+      },
+      "evsi_minus_random": {
+        "mean_regret_difference": -0.00021354741917184534,
+        "ci95": [
+          -0.0004860640423157778,
+          3.096887639721156e-05
+        ],
+        "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+      }
+    },
+    "100": {
+      "evsi_selected": "local_a",
+      "mean_regret": {
+        "evsi": 0.0023851,
+        "random": 0.0025503,
+        "fixed_a": 0.0023851,
+        "max_prior_variance": 0.0026319,
+        "no_calibration": 0.0026611
+      },
+      "evsi_switch_rate": 0.2,
+      "evsi_helped_rate": 0.12333333333333334,
+      "evsi_harmed_rate": 0.07666666666666666,
+      "evsi_unexpected_calibration_outcome_rate": 0.013333333333333334,
+      "evsi_minus_no_cal": {
+        "mean_regret_difference": -0.0002760132740622721,
+        "ci95": [
+          -0.000615432091567558,
+          4.808229094849579e-05
+        ],
+        "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+      },
+      "evsi_minus_random": {
+        "mean_regret_difference": -0.00016518914204207008,
+        "ci95": [
+          -0.0004605264972732126,
+          0.00012310490184128196
+        ],
+        "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+      }
+    },
+    "200": {
+      "evsi_selected": "local_a",
+      "mean_regret": {
+        "evsi": 0.0021486,
+        "random": 0.002497,
+        "fixed_a": 0.0021486,
+        "max_prior_variance": 0.0025813,
+        "no_calibration": 0.0026611
+      },
+      "evsi_switch_rate": 0.21666666666666667,
+      "evsi_helped_rate": 0.15,
+      "evsi_harmed_rate": 0.06666666666666667,
+      "evsi_unexpected_calibration_outcome_rate": 0.006666666666666667,
+      "evsi_minus_no_cal": {
+        "mean_regret_difference": -0.0005124987883652704,
+        "ci95": [
+          -0.0008918009950384564,
+          -0.00015639355721287207
+        ],
+        "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+      },
+      "evsi_minus_random": {
+        "mean_regret_difference": -0.0003483985722485637,
+        "ci95": [
+          -0.0007291740770879128,
+          1.4990753241659964e-05
+        ],
+        "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+      }
+    },
+    "500": {
+      "evsi_selected": "local_a",
+      "mean_regret": {
+        "evsi": 0.0020683,
+        "random": 0.0021472,
+        "fixed_a": 0.0020683,
+        "max_prior_variance": 0.0024106,
+        "no_calibration": 0.0026611
+      },
+      "evsi_switch_rate": 0.2,
+      "evsi_helped_rate": 0.14333333333333334,
+      "evsi_harmed_rate": 0.056666666666666664,
+      "evsi_unexpected_calibration_outcome_rate": 0.02666666666666667,
+      "evsi_minus_no_cal": {
+        "mean_regret_difference": -0.0005928329768833029,
+        "ci95": [
+          -0.0009978344053738696,
+          -0.0002011722226062266
+        ],
+        "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+      },
+      "evsi_minus_random": {
+        "mean_regret_difference": -7.884971446420618e-05,
+        "ci95": [
+          -0.0004924574720509785,
+          0.00037109937824240875
+        ],
+        "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+      }
+    }
+  },
+  "full_json": "results/diagnostics/layered6_prior.json",
+  "trial_csv": "results/diagnostics/layered6_prior.csv"
+}

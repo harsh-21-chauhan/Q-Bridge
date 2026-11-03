@@ -1,0 +1,517 @@
+{
+  "description": "M2 diagnostic; simulated noise, NOT evidence of real hardware accuracy",
+  "settings": {
+    "family": "layered",
+    "qubits": 12,
+    "cx_gates": 22,
+    "placements": 924,
+    "runs": 300,
+    "seed": 123,
+    "shots": [
+      50,
+      100,
+      200,
+      500
+    ],
+    "truth_mode": "shifted",
+    "prior_means": {
+      "local_a": 0.02,
+      "local_b": 0.03,
+      "remote": 0.05
+    }
+  },
+  "diagnostics": {
+    "prior_mismatch": {
+      "local_a": {
+        "mean_abs_z_score": 0.9360991954638965,
+        "outside_prior_95_percent_rate": 0.0
+      },
+      "local_b": {
+        "mean_abs_z_score": 1.1464375145803978,
+        "outside_prior_95_percent_rate": 0.09
+      },
+      "remote": {
+        "mean_abs_z_score": 3.656773907335105,
+        "outside_prior_95_percent_rate": 0.74
+      }
+    },
+    "placement_geometry": {
+      "no_calibration_oracle_optimal_rate": 0.6333333333333333,
+      "mean_oracle_regret_no_calibration": 0.0012215978310139875,
+      "mean_margin_to_next_distinct_loss": 0.0016809988050560372,
+      "fraction_multiple_tied_oracle_placements": 0.0
+    },
+    "perfect_one_parameter_counterfactual": {
+      "local_a": {
+        "placement_change_rate": 0.4666666666666667,
+        "mean_regret_gain_vs_no_cal": -0.0018559181739893908
+      },
+      "local_b": {
+        "placement_change_rate": 0.69,
+        "mean_regret_gain_vs_no_cal": -0.0014456005691622733
+      },
+      "remote": {
+        "placement_change_rate": 0.0,
+        "mean_regret_gain_vs_no_cal": 0.0
+      }
+    }
+  },
+  "budgets": {
+    "50": {
+      "evsi_selected_calibration": "local_b",
+      "evsi_predicted_value": {
+        "local_a": 0.0002941850985445499,
+        "local_b": 0.0004066803073751596,
+        "remote": 0.0001068559297828231
+      },
+      "policies": {
+        "evsi": {
+          "mean_regret": 0.002488408845173627,
+          "regret_ci95": [
+            0.002193545435861677,
+            0.0028458719578303483
+          ],
+          "mean_task_loss": 0.12147670027345522,
+          "oracle_optimal_rate": 0.43333333333333335,
+          "placement_switch_rate": 0.37,
+          "helped_rate": 0.07333333333333333,
+          "harmed_rate": 0.2966666666666667,
+          "mean_gain_vs_no_cal": -0.0012668110141596399,
+          "unexpected_calibration_outcome_rate": 0.05333333333333334
+        },
+        "random": {
+          "mean_regret": 0.00164395715225902,
+          "regret_ci95": [
+            0.0013679022466660331,
+            0.0019449987563931958
+          ],
+          "mean_task_loss": 0.12063224858054061,
+          "oracle_optimal_rate": 0.5833333333333334,
+          "placement_switch_rate": 0.16333333333333333,
+          "helped_rate": 0.05333333333333334,
+          "harmed_rate": 0.11,
+          "mean_gain_vs_no_cal": -0.0004223593212450327,
+          "unexpected_calibration_outcome_rate": 0.16
+        },
+        "fixed_a": {
+          "mean_regret": 0.0016704946180412469,
+          "regret_ci95": [
+            0.0013033844831982226,
+            0.002061028673870928
+          ],
+          "mean_task_loss": 0.12065878604632284,
+          "oracle_optimal_rate": 0.65,
+          "placement_switch_rate": 0.17333333333333334,
+          "helped_rate": 0.08333333333333333,
+          "harmed_rate": 0.09,
+          "mean_gain_vs_no_cal": -0.00044889678702725956,
+          "unexpected_calibration_outcome_rate": 0.03333333333333333
+        },
+        "max_prior_variance": {
+          "mean_regret": 0.00125525529922663,
+          "regret_ci95": [
+            0.0010010271162385973,
+            0.0015214581773666694
+          ],
+          "mean_task_loss": 0.12024354672750823,
+          "oracle_optimal_rate": 0.6333333333333333,
+          "placement_switch_rate": 0.0033333333333333335,
+          "helped_rate": 0.0,
+          "harmed_rate": 0.0033333333333333335,
+          "mean_gain_vs_no_cal": -3.365746821264277e-05,
+          "unexpected_calibration_outcome_rate": 0.44
+        },
+        "no_calibration": {
+          "mean_regret": 0.0012215978310139875,
+          "regret_ci95": [
+            0.0009828151989318325,
+            0.0014932470654285272
+          ],
+          "mean_task_loss": 0.12020988925929559,
+          "oracle_optimal_rate": 0.6333333333333333,
+          "placement_switch_rate": 0.0,
+          "helped_rate": 0.0,
+          "harmed_rate": 0.0,
+          "mean_gain_vs_no_cal": 0.0,
+          "unexpected_calibration_outcome_rate": null
+        }
+      },
+      "paired_comparisons": {
+        "evsi_minus_random": {
+          "mean_regret_difference": 0.0008444516929146072,
+          "ci95": [
+            0.0005577469177936173,
+            0.001131680255227013
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_fixed_a": {
+          "mean_regret_difference": 0.0008179142271323803,
+          "ci95": [
+            0.000350921206016951,
+            0.0012443499344376048
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_max_prior_variance": {
+          "mean_regret_difference": 0.001233153545946997,
+          "ci95": [
+            0.0009166059462766001,
+            0.001548255858459802
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_no_calibration": {
+          "mean_regret_difference": 0.0012668110141596399,
+          "ci95": [
+            0.0009789058660948028,
+            0.0016001172743723346
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        }
+      }
+    },
+    "100": {
+      "evsi_selected_calibration": "local_b",
+      "evsi_predicted_value": {
+        "local_a": 0.0004575089826417966,
+        "local_b": 0.0007547813492205513,
+        "remote": 0.00022732729112648342
+      },
+      "policies": {
+        "evsi": {
+          "mean_regret": 0.002398489321078867,
+          "regret_ci95": [
+            0.0020690760572927066,
+            0.0027305789407113894
+          ],
+          "mean_task_loss": 0.12138678074936048,
+          "oracle_optimal_rate": 0.43,
+          "placement_switch_rate": 0.46,
+          "helped_rate": 0.11333333333333333,
+          "harmed_rate": 0.3466666666666667,
+          "mean_gain_vs_no_cal": -0.0011768914900648793,
+          "unexpected_calibration_outcome_rate": 0.04666666666666667
+        },
+        "random": {
+          "mean_regret": 0.0019701626503109857,
+          "regret_ci95": [
+            0.001629251462717395,
+            0.0023250203713514783
+          ],
+          "mean_task_loss": 0.12095845407859258,
+          "oracle_optimal_rate": 0.5433333333333333,
+          "placement_switch_rate": 0.24333333333333335,
+          "helped_rate": 0.06333333333333334,
+          "harmed_rate": 0.18,
+          "mean_gain_vs_no_cal": -0.0007485648192969984,
+          "unexpected_calibration_outcome_rate": 0.19
+        },
+        "fixed_a": {
+          "mean_regret": 0.002028918158525629,
+          "regret_ci95": [
+            0.001642004481667125,
+            0.002461034673072913
+          ],
+          "mean_task_loss": 0.12101720958680723,
+          "oracle_optimal_rate": 0.6033333333333334,
+          "placement_switch_rate": 0.31666666666666665,
+          "helped_rate": 0.12,
+          "harmed_rate": 0.19666666666666666,
+          "mean_gain_vs_no_cal": -0.0008073203275116419,
+          "unexpected_calibration_outcome_rate": 0.016666666666666666
+        },
+        "max_prior_variance": {
+          "mean_regret": 0.001218885472406606,
+          "regret_ci95": [
+            0.0009617859362142226,
+            0.0014730661375775152
+          ],
+          "mean_task_loss": 0.12020717690068822,
+          "oracle_optimal_rate": 0.6366666666666667,
+          "placement_switch_rate": 0.0033333333333333335,
+          "helped_rate": 0.0033333333333333335,
+          "harmed_rate": 0.0,
+          "mean_gain_vs_no_cal": 2.712358607381467e-06,
+          "unexpected_calibration_outcome_rate": 0.5533333333333333
+        },
+        "no_calibration": {
+          "mean_regret": 0.0012215978310139875,
+          "regret_ci95": [
+            0.0009798618072130308,
+            0.0014782275103321484
+          ],
+          "mean_task_loss": 0.12020988925929559,
+          "oracle_optimal_rate": 0.6333333333333333,
+          "placement_switch_rate": 0.0,
+          "helped_rate": 0.0,
+          "harmed_rate": 0.0,
+          "mean_gain_vs_no_cal": 0.0,
+          "unexpected_calibration_outcome_rate": null
+        }
+      },
+      "paired_comparisons": {
+        "evsi_minus_random": {
+          "mean_regret_difference": 0.00042832667076788083,
+          "ci95": [
+            4.559928910285543e-05,
+            0.000782761496141413
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_fixed_a": {
+          "mean_regret_difference": 0.00036957116255323743,
+          "ci95": [
+            -0.000173831493788928,
+            0.00088823422118372
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_max_prior_variance": {
+          "mean_regret_difference": 0.0011796038486722607,
+          "ci95": [
+            0.0008411821986086779,
+            0.0015174333637941156
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_no_calibration": {
+          "mean_regret_difference": 0.0011768914900648793,
+          "ci95": [
+            0.000842423745174249,
+            0.0015068217026781138
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        }
+      }
+    },
+    "200": {
+      "evsi_selected_calibration": "local_b",
+      "evsi_predicted_value": {
+        "local_a": 0.0006417959415979252,
+        "local_b": 0.0010751837529360403,
+        "remote": 0.0004268078677664988
+      },
+      "policies": {
+        "evsi": {
+          "mean_regret": 0.0029519218835468786,
+          "regret_ci95": [
+            0.002602971074265105,
+            0.003321700214862388
+          ],
+          "mean_task_loss": 0.12194021331182849,
+          "oracle_optimal_rate": 0.3466666666666667,
+          "placement_switch_rate": 0.6233333333333333,
+          "helped_rate": 0.14666666666666667,
+          "harmed_rate": 0.4766666666666667,
+          "mean_gain_vs_no_cal": -0.0017303240525328911,
+          "unexpected_calibration_outcome_rate": 0.06
+        },
+        "random": {
+          "mean_regret": 0.0022074049398352657,
+          "regret_ci95": [
+            0.0018653656536632066,
+            0.002585264550733177
+          ],
+          "mean_task_loss": 0.12119569636811688,
+          "oracle_optimal_rate": 0.4866666666666667,
+          "placement_switch_rate": 0.3233333333333333,
+          "helped_rate": 0.08333333333333333,
+          "harmed_rate": 0.24,
+          "mean_gain_vs_no_cal": -0.0009858071088212786,
+          "unexpected_calibration_outcome_rate": 0.22333333333333333
+        },
+        "fixed_a": {
+          "mean_regret": 0.0025384976990448864,
+          "regret_ci95": [
+            0.002089660541392927,
+            0.0030778061910647163
+          ],
+          "mean_task_loss": 0.12152678912732649,
+          "oracle_optimal_rate": 0.5633333333333334,
+          "placement_switch_rate": 0.35,
+          "helped_rate": 0.11333333333333333,
+          "harmed_rate": 0.23666666666666666,
+          "mean_gain_vs_no_cal": -0.001316899868030899,
+          "unexpected_calibration_outcome_rate": 0.013333333333333334
+        },
+        "max_prior_variance": {
+          "mean_regret": 0.0012215978310139875,
+          "regret_ci95": [
+            0.000977425167197295,
+            0.0014836650181683658
+          ],
+          "mean_task_loss": 0.12020988925929559,
+          "oracle_optimal_rate": 0.6333333333333333,
+          "placement_switch_rate": 0.0,
+          "helped_rate": 0.0,
+          "harmed_rate": 0.0,
+          "mean_gain_vs_no_cal": 0.0,
+          "unexpected_calibration_outcome_rate": 0.64
+        },
+        "no_calibration": {
+          "mean_regret": 0.0012215978310139875,
+          "regret_ci95": [
+            0.000978577185352347,
+            0.001473427534381334
+          ],
+          "mean_task_loss": 0.12020988925929559,
+          "oracle_optimal_rate": 0.6333333333333333,
+          "placement_switch_rate": 0.0,
+          "helped_rate": 0.0,
+          "harmed_rate": 0.0,
+          "mean_gain_vs_no_cal": 0.0,
+          "unexpected_calibration_outcome_rate": null
+        }
+      },
+      "paired_comparisons": {
+        "evsi_minus_random": {
+          "mean_regret_difference": 0.0007445169437116128,
+          "ci95": [
+            0.0003505127486017496,
+            0.0011349117373085308
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_fixed_a": {
+          "mean_regret_difference": 0.0004134241845019922,
+          "ci95": [
+            -0.00020709292323453372,
+            0.0010179674666887532
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_max_prior_variance": {
+          "mean_regret_difference": 0.0017303240525328911,
+          "ci95": [
+            0.0013579238710533321,
+            0.0020779158018473134
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_no_calibration": {
+          "mean_regret_difference": 0.0017303240525328911,
+          "ci95": [
+            0.0013843927876962274,
+            0.0020821522654732583
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        }
+      }
+    },
+    "500": {
+      "evsi_selected_calibration": "local_b",
+      "evsi_predicted_value": {
+        "local_a": 0.0008219129632073136,
+        "local_b": 0.001372142389383199,
+        "remote": 0.0006654414913806611
+      },
+      "policies": {
+        "evsi": {
+          "mean_regret": 0.002990035154782079,
+          "regret_ci95": [
+            0.0026131017063888377,
+            0.0033408931081533116
+          ],
+          "mean_task_loss": 0.12197832658306368,
+          "oracle_optimal_rate": 0.34,
+          "placement_switch_rate": 0.66,
+          "helped_rate": 0.15666666666666668,
+          "harmed_rate": 0.5033333333333333,
+          "mean_gain_vs_no_cal": -0.0017684373237680914,
+          "unexpected_calibration_outcome_rate": 0.06666666666666667
+        },
+        "random": {
+          "mean_regret": 0.0019322626938668588,
+          "regret_ci95": [
+            0.0016225626973118067,
+            0.00224310322051881
+          ],
+          "mean_task_loss": 0.12092055412214847,
+          "oracle_optimal_rate": 0.5266666666666666,
+          "placement_switch_rate": 0.35333333333333333,
+          "helped_rate": 0.11666666666666667,
+          "harmed_rate": 0.23666666666666666,
+          "mean_gain_vs_no_cal": -0.0007106648628528717,
+          "unexpected_calibration_outcome_rate": 0.24666666666666667
+        },
+        "fixed_a": {
+          "mean_regret": 0.00244623743098046,
+          "regret_ci95": [
+            0.001997881884051781,
+            0.00295916548623299
+          ],
+          "mean_task_loss": 0.12143452885926204,
+          "oracle_optimal_rate": 0.5866666666666667,
+          "placement_switch_rate": 0.41333333333333333,
+          "helped_rate": 0.15666666666666668,
+          "harmed_rate": 0.25666666666666665,
+          "mean_gain_vs_no_cal": -0.0012246395999664724,
+          "unexpected_calibration_outcome_rate": 0.023333333333333334
+        },
+        "max_prior_variance": {
+          "mean_regret": 0.0012215978310139875,
+          "regret_ci95": [
+            0.0009765766280652392,
+            0.0014790284967753041
+          ],
+          "mean_task_loss": 0.12020988925929559,
+          "oracle_optimal_rate": 0.6333333333333333,
+          "placement_switch_rate": 0.0,
+          "helped_rate": 0.0,
+          "harmed_rate": 0.0,
+          "mean_gain_vs_no_cal": 0.0,
+          "unexpected_calibration_outcome_rate": 0.71
+        },
+        "no_calibration": {
+          "mean_regret": 0.0012215978310139875,
+          "regret_ci95": [
+            0.0009682934389924806,
+            0.0014905060923026939
+          ],
+          "mean_task_loss": 0.12020988925929559,
+          "oracle_optimal_rate": 0.6333333333333333,
+          "placement_switch_rate": 0.0,
+          "helped_rate": 0.0,
+          "harmed_rate": 0.0,
+          "mean_gain_vs_no_cal": 0.0,
+          "unexpected_calibration_outcome_rate": null
+        }
+      },
+      "paired_comparisons": {
+        "evsi_minus_random": {
+          "mean_regret_difference": 0.0010577724609152196,
+          "ci95": [
+            0.0006723637875127469,
+            0.001455144616645982
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_fixed_a": {
+          "mean_regret_difference": 0.0005437977238016187,
+          "ci95": [
+            -1.3259102496065324e-06,
+            0.0011222339963788046
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_max_prior_variance": {
+          "mean_regret_difference": 0.0017684373237680914,
+          "ci95": [
+            0.0013841185403696053,
+            0.0021320962782194856
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        },
+        "evsi_minus_no_calibration": {
+          "mean_regret_difference": 0.0017684373237680914,
+          "ci95": [
+            0.0014028390111796918,
+            0.002132085338672714
+          ],
+          "interpretation": "negative favors EVSI; interval crossing 0 is inconclusive"
+        }
+      }
+    }
+  }
+}
