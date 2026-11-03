@@ -1,0 +1,159 @@
+{
+  "description": "Held-out SIMULATED benchmark; not evidence from physical quantum hardware",
+  "settings": {
+    "family": "layered",
+    "qubits": 12,
+    "runs": 30,
+    "shots": 100,
+    "seed": 20261104,
+    "truth_mode": "shifted",
+    "guard_draws": 512,
+    "candidate": "adaptive_original_guard60",
+    "fixed_split_groups": {
+      "local_b": 50,
+      "remote": 50
+    },
+    "initial_evsi_choice": "local_b"
+  },
+  "policies": {
+    "no_calibration": {
+      "mean_regret": 0.0010437565126289188,
+      "regret_95ci": [
+        0.0003915989418545886,
+        0.0018460155274965225
+      ],
+      "mean_task_loss": 0.12096177947657448,
+      "switch_rate": 0.0,
+      "help_rate": 0.0,
+      "harm_rate": 0.0
+    },
+    "original_evsi": {
+      "mean_regret": 0.002797813662126775,
+      "regret_95ci": [
+        0.0018003811431156135,
+        0.00392107282809162
+      ],
+      "mean_task_loss": 0.12271583662607234,
+      "switch_rate": 0.6,
+      "help_rate": 0.13333333333333333,
+      "harm_rate": 0.4666666666666667
+    },
+    "random_calibration": {
+      "mean_regret": 0.00298327931190548,
+      "regret_95ci": [
+        0.0015374316371065053,
+        0.004735008445677879
+      ],
+      "mean_task_loss": 0.12290130227585103,
+      "switch_rate": 0.43333333333333335,
+      "help_rate": 0.1,
+      "harm_rate": 0.3333333333333333
+    },
+    "fixed_split": {
+      "mean_regret": 0.0013266309371121577,
+      "regret_95ci": [
+        0.0006224523780866223,
+        0.002141604911748828
+      ],
+      "mean_task_loss": 0.12124465390105771,
+      "switch_rate": 0.13333333333333333,
+      "help_rate": 0.03333333333333333,
+      "harm_rate": 0.1
+    },
+    "adaptive_original": {
+      "mean_regret": 0.0026887105875777976,
+      "regret_95ci": [
+        0.0012102573051266919,
+        0.004439034184953933
+      ],
+      "mean_task_loss": 0.12260673355152335,
+      "switch_rate": 0.4,
+      "help_rate": 0.16666666666666666,
+      "harm_rate": 0.23333333333333334
+    },
+    "adaptive_original_guard60": {
+      "mean_regret": 0.0023132444935099286,
+      "regret_95ci": [
+        0.0010627536528095098,
+        0.0038039702185275353
+      ],
+      "mean_task_loss": 0.12223126745745548,
+      "switch_rate": 0.23333333333333334,
+      "help_rate": 0.06666666666666667,
+      "harm_rate": 0.16666666666666666
+    },
+    "adaptive_original_guard75": {
+      "mean_regret": 0.002325933367169982,
+      "regret_95ci": [
+        0.0011222414155143557,
+        0.0038378527918297065
+      ],
+      "mean_task_loss": 0.12224395633111554,
+      "switch_rate": 0.16666666666666666,
+      "help_rate": 0.03333333333333333,
+      "harm_rate": 0.13333333333333333
+    },
+    "adaptive_robust_guard75": {
+      "mean_regret": 0.0016521641237511157,
+      "regret_95ci": [
+        0.0007313044190250127,
+        0.0028477369385133465
+      ],
+      "mean_task_loss": 0.12157018708769667,
+      "switch_rate": 0.06666666666666667,
+      "help_rate": 0.0,
+      "harm_rate": 0.06666666666666667
+    }
+  },
+  "paired_comparisons": {
+    "no_calibration": {
+      "mean_regret_reduction_vs_candidate": -0.00126948798088101,
+      "paired_95ci": [
+        -0.0028647218521837825,
+        -5.835858107138059e-06
+      ]
+    },
+    "original_evsi": {
+      "mean_regret_reduction_vs_candidate": 0.00048456916861684636,
+      "paired_95ci": [
+        -0.0013699247857836803,
+        0.0022381104479192366
+      ]
+    },
+    "random_calibration": {
+      "mean_regret_reduction_vs_candidate": 0.0006700348183955512,
+      "paired_95ci": [
+        -0.0009248047664424915,
+        0.0025014185642231335
+      ]
+    },
+    "fixed_split": {
+      "mean_regret_reduction_vs_candidate": -0.000986613556397771,
+      "paired_95ci": [
+        -0.002595589282699206,
+        0.0003459244001764347
+      ]
+    },
+    "adaptive_original": {
+      "mean_regret_reduction_vs_candidate": 0.00037546609406786897,
+      "paired_95ci": [
+        -0.0005938638508478079,
+        0.0016201044829192107
+      ]
+    },
+    "adaptive_original_guard75": {
+      "mean_regret_reduction_vs_candidate": 1.2688873660053149e-05,
+      "paired_95ci": [
+        -0.000523313176229906,
+        0.0005613797972100654
+      ]
+    },
+    "adaptive_robust_guard75": {
+      "mean_regret_reduction_vs_candidate": -0.000661080369758813,
+      "paired_95ci": [
+        -0.0021044449122474265,
+        0.0006940765937645069
+      ]
+    }
+  }
+}
