@@ -20,7 +20,7 @@ The dark research workspace uses teal for QPU A, violet for QPU B and amber for 
 | Benchmarks | All eight policies, full aggregate and 40 scenario filters, scenario-specific paired intervals and source checksum. |
 | Saved experiments | Paginated local records, stable ID order, reopen a completed experiment. |
 | Research guide | Plain-language explanations and model limitations. |
-| Research assistant | Explicitly deferred; no model client, key or API calls. |
+| Research assistant | Mock walkthroughs and scoped scientific tools; see [assistant guide](ASSISTANT_WALKTHROUGH.md). Live model calls remain disabled. |
 
 ## Important interpretation rules
 
@@ -55,7 +55,7 @@ This is a walkthrough of the completed local simulation app, not the later Meta-
 | 1:20–1:50 | Select an adaptive stage. Explain EVSI and show how failures/successes update the Beta beliefs. |
 | 1:50–2:15 | Show guard evidence and credible intervals. Explain that uncertainty is conditional on the model and a retained placement is valid. |
 | 2:15–2:40 | Open Benchmarks, filter one scenario, and distinguish observed regret from universal superiority. |
-| 2:40–3:00 | Reopen a saved run, show provenance/export, and state the simulator's limitations. The Meta assistant is still deferred. |
+| 2:40–3:00 | Reopen a saved run, show provenance/export, and state the simulator's limitations. Show the labeled mock assistant; live verification remains pending. |
 
 ## Verification and remaining review
 

@@ -1,6 +1,6 @@
 # Run Q-Bridge locally
 
-The scientific interface, FastAPI backend and React dashboard are implemented. Run Python and React in two separate terminals. No API key or paid service is required; Meta integration is deferred.
+The scientific interface, FastAPI backend and React dashboard are implemented. Run Python and React in two separate terminals. No API key or paid service is required; the assistant defaults to mock mode. See [the assistant guide](ASSISTANT_WALKTHROUGH.md).
 
 ## 1. Open the repository and activate Python
 
@@ -119,7 +119,7 @@ The result contains `result.calibration`, `result.final_posterior`, `result.plac
 | `GET /api/experiments/{experiment_id}/evidence` | Retrieve only measurement/posterior decision evidence |
 | `GET /api/benchmarks/summary` | Eight aggregate policies and all 40 full M2C scenario breakdowns |
 
-There is no assistant endpoint yet. Only `adaptive_evsi` is accepted for new experiments; the benchmark endpoint contains historical baseline comparisons. Changing `shots` with the same seed/scenario preserves the simulator's underlying environment and measurement prefixes, as documented in the scientific interface. No claim is made that more shots must produce a better individual result.
+The assistant exposes `/api/assistant/status`, `/api/assistant/ask` and `/api/assistant/disable`; see the assistant guide. Only `adaptive_evsi` is accepted for new experiments; the benchmark endpoint contains historical baseline comparisons. Changing `shots` with the same seed/scenario preserves the simulator's underlying environment and measurement prefixes, as documented in the scientific interface. No claim is made that more shots must produce a better individual result.
 
 ## Files and configuration
 
@@ -134,7 +134,7 @@ export QBRIDGE_EXPERIMENT_DIR=/absolute/path/to/local/experiments
 export QBRIDGE_RESEARCH_DIR=/absolute/path/to/Q-Bridge/research
 ```
 
-Use separate directories for evidence and generated experiments. `.env.example` documents these names, but `.env` files are **not automatically loaded**. No Meta key is needed or read. A built wheel includes both Python packages, but deliberately does not duplicate research archives; point `QBRIDGE_RESEARCH_DIR` to the checkout when running an installed wheel elsewhere.
+Use separate directories for evidence and generated experiments. `.env.example` documents these names, but `.env` files are **not automatically loaded**. No Meta key is needed in mock mode; only explicitly authorized live mode reads it. A built wheel includes both Python packages, but deliberately does not duplicate research archives; point `QBRIDGE_RESEARCH_DIR` to the checkout when running an installed wheel elsewhere.
 
 ## Tests and common errors
 

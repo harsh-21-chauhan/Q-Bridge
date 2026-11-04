@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, expect, it, vi } from 'vitest';
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import App from './App';
-import { api } from './lib/api';
+import { api, request } from './lib/api';
 import { defaults } from './components/ExperimentForm';
 
 // These tests focus on request/state transitions. ScientificViews.test.jsx
@@ -35,10 +35,12 @@ function exampleRecord(shots = 100) {
 vi.mock('./lib/api', () => ({
   api: { health: vi.fn(), history: vi.fn(), run: vi.fn(), get: vi.fn(), benchmarks: vi.fn() },
   downloadJSON: vi.fn(),
+  request: vi.fn(),
 }));
 afterEach(cleanup);
 beforeEach(() => {
   vi.resetAllMocks();
+  request.mockResolvedValue({ mode: 'mock', reserved_usd: 0, budget_usd: 5, provider_calls: 0 });
   api.health.mockResolvedValue({ status: 'ok' });
   api.history.mockResolvedValue({ experiments: [], total: 0, next_offset: null });
 });
@@ -48,7 +50,7 @@ it('loads connection/history without creating experiments or model requests', as
   await screen.findByText('Backend connected');
   expect(api.run).not.toHaveBeenCalled();
   fireEvent.click(screen.getByRole('button', { name: /Research assistant/ }));
-  expect(screen.getByText('Meta integration is not enabled')).toBeTruthy();
+  await screen.findByText('Mock assistant · no model calls');
   expect(api.run).not.toHaveBeenCalled();
   expect(api.benchmarks).not.toHaveBeenCalled();
 });

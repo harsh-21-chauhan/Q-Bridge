@@ -1,3 +1,4 @@
+import ResearchAssistant from './components/ResearchAssistant';
 import { useEffect, useRef, useState } from 'react';
 import {
   Atom,
@@ -157,7 +158,6 @@ export default function App() {
             >
               <Icon size={18} />
               {label}
-              {key === 'assistant' && <small>Later</small>}
             </button>
           ))}
         </nav>
@@ -570,41 +570,7 @@ export default function App() {
               </Panel>
             </>
           )}
-          {page === 'assistant' && (
-            <>
-              <div className="page-intro">
-                <div>
-                  <span className="eyebrow">Planned next integration</span>
-                  <h1>
-                    A research assistant,
-                    <br />
-                    grounded in your results.
-                  </h1>
-                  <p>Hosted Muse Spark tool calling will follow the completed dashboard stage.</p>
-                </div>
-              </div>
-              <Panel title="Meta integration is not enabled" action={<Sparkles size={24} />}>
-                <p>
-                  No model is connected and no API calls are being made. Scientific computations,
-                  saved experiments and benchmarks work independently.
-                </p>
-                <Note>
-                  Later, the assistant will retrieve evidence, explain calibration choices and run
-                  controlled what-if comparisons through Python tools. Real API testing requires
-                  your explicit authorization.
-                </Note>
-                <h3>Questions the future assistant should investigate</h3>
-                <ul className="readable-list">
-                  <li>Why was this noise group selected for the next batch?</li>
-                  <li>Why did the guard retain the initial placement?</li>
-                  <li>How does the result change with 200 calibration shots?</li>
-                </ul>
-                <button onClick={() => navigate('guide')}>
-                  Read the research guide <ArrowUpRight size={15} />
-                </button>
-              </Panel>
-            </>
-          )}
+          {page === 'assistant' && <ResearchAssistant record={record} />}
           <footer>
             <span>Q-BRIDGE / SIMULATION RESEARCH</span>
             <span>Observable evidence. Reproducible decisions.</span>

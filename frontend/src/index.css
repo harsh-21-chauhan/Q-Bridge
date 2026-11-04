@@ -1172,3 +1172,19 @@ footer {
     scroll-behavior: auto !important;
   }
 }
+textarea {
+  width: 100%;
+  background: #0c1420;
+  color: #dce6f3;
+  border: 1px solid #314055;
+  border-radius: 5px;
+  padding: 12px;
+  font: inherit;
+  resize: vertical;
+  margin-bottom: 15px;
+}
+.assistant-evidence {
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+  padding-top: 20px;
+}

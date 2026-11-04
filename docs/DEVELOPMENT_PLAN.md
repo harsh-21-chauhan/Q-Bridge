@@ -5,7 +5,7 @@ Updated 4 November 2026. The scientific method is frozen; development adds the a
 1. **Scientific production interface:** original-prior adaptive EVSI, optional 60% guard, complete evidence, simulation/evaluation separation and M2C equivalence tests. See [the interface contract](SCIENTIFIC_INTERFACE.md).
 2. **FastAPI backend — implemented:** validated experiment creation/retrieval/history, local JSON persistence, an evidence-only endpoint, precomputed benchmark summaries and tests. See [setup](SETUP.md) and the [plain-language walkthrough](BACKEND_WALKTHROUGH.md). No Meta client or real model calls at this stage.
 3. **React dashboard — implemented:** real backend connection, experiment controls, circuit/QPU placement, calibration timeline, posterior/loss reporting, saved runs, paired budget exploration and scenario-specific benchmark comparisons. See the [dashboard walkthrough](FRONTEND_WALKTHROUGH.md). Automated checks cover key interactions; desktop/mobile visual review remains pending because local browser use was disabled during implementation.
-4. **Hosted Meta Muse Spark integration:** implement only when the earlier stages are complete, subject to the requirements below. No self-hosted open-weight deployment.
+4. **Hosted Meta Muse Spark integration — adapter implemented, mock default:** bounded tool calling, persistent budget reservations and emergency stop are implemented. Live verification remains pending explicit user authorization. See [assistant guide](ASSISTANT_WALKTHROUGH.md). No self-hosted open-weight deployment.
 5. **Final testing and three-minute demo:** test the full scientific/application flow, finish setup/limitations documentation and prepare a reproducible demonstration.
 
 ## Model and billing decisions to preserve

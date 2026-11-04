@@ -13,7 +13,7 @@ dependencies = ["numpy>=1.26", "scipy>=1.12"]
 [project.optional-dependencies]
 aer = ["qiskit>=2.0,<3", "qiskit-aer>=0.16,<1"]
 dev = ["pytest>=8"]
-api = ["fastapi>=0.115,<1", "pydantic>=2.10,<3", "uvicorn>=0.30,<1"]
+api = ["fastapi>=0.115,<1", "pydantic>=2.10,<3", "uvicorn>=0.30,<1", "httpx>=0.27,<1"]
 api-test = ["httpx>=0.27,<1"]
 
 [project.scripts]

@@ -152,7 +152,7 @@ def test_benchmarks_and_interactive_docs_are_available(client):
     assert client.get("/docs").status_code == 200
     schema = client.get("/openapi.json").json()
     assert schema["components"]["schemas"]["ExperimentRequest"]["additionalProperties"] is False
-    assert client.get("/api/health").json()["meta_integration"] == "not_implemented"
+    assert client.get("/api/health").json()["meta_integration"] == "mock_default"
     assert client.post("/api/assistant/chat", json={}).status_code == 404
 
 
