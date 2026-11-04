@@ -4,7 +4,32 @@
 
 Q-Bridge investigates how to spend a limited calibration budget before assigning a quantum circuit's qubits to two processors. Python computes which error sources to measure, updates Bayesian beliefs, and evaluates placements under uncertainty.
 
-**Simulation-only research prototype.** M1, M2A, M2B and M2C research and the scientific production interface are complete. The selected method is adaptive EVSI with the original Beta priors and an optional 60% placement-switch guard. FastAPI and React are next; hosted Meta Muse Spark integration is deferred until those stages are complete and real-call testing is explicitly authorized.
+**Simulation-only research prototype.** M1–M2C research, the scientific production interface, FastAPI backend and React dashboard are implemented. The selected method is adaptive EVSI with the original Beta priors and an optional 60% placement-switch guard. Hosted Meta Muse Spark integration remains deferred; real-call testing requires explicit authorization.
+
+## Try the backend
+
+With your Python environment active, run these commands from the repository root:
+
+```bash
+python -m pip install -e '.[api,dev,api-test]'
+python -m uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+Open [the interactive API page](http://127.0.0.1:8000/docs) and try `POST /api/experiments`. The backend runs the validated Python calculation, saves the JSON record, and returns its complete evidence with simulator-only evaluation separated. It also retrieves saved runs, lists history, provides evidence-only responses and serves verified M2C benchmark summaries. No Meta key is required.
+
+Read the [step-by-step setup](docs/SETUP.md) and [plain-language backend walkthrough](docs/BACKEND_WALKTHROUGH.md) to understand the code and prepare your demonstration.
+
+## Open the dashboard
+
+With FastAPI running, open a second terminal (Node.js 22.12+):
+
+```bash
+cd frontend
+npm ci
+npm run dev
+```
+
+Open [Q-Bridge locally](http://127.0.0.1:5173). Run a calibration, inspect the circuit and placement, follow each Bayesian update, compare budgets, and browse preserved M2C benchmarks. Simulator-only evaluation is separate from decision evidence. See the [React walkthrough](docs/FRONTEND_WALKTHROUGH.md) for the code map and demo narrative.
 
 ## Selected scientific method
 
@@ -68,6 +93,8 @@ The cleanup baseline passed all 38 tests, including both Aer checks. The product
 
 ```text
 Q-Bridge/
+├── backend/app/              FastAPI routes, validated schemas and small services
+├── frontend/                 React dashboard, API client and presentation tests
 ├── src/qbridge/              Scientific engine and historical policy implementations
 ├── tests/                    Scientific regression and independent validation tests
 ├── scripts/                  Research runners, summarizers and evidence verification
@@ -111,6 +138,6 @@ Historical guides remain available: [M1 walkthrough](docs/M1_WALKTHROUGH.md), [M
 
 ## Next development stage
 
-The scientific production wrapper is implemented. Next add FastAPI/local experiment persistence, then the React research dashboard. Hosted Meta Muse Spark integration follows those stages, using Python tools to retrieve, compare and explain scientific results. Real API calls require explicit testing authorization. See the [development order and saved Meta requirements](docs/DEVELOPMENT_PLAN.md); no Meta integration or real model call has been implemented or performed.
+The scientific production wrapper, FastAPI/local experiment persistence and React dashboard are implemented. Review the dashboard locally before proceeding to hosted Meta Muse Spark integration, which will use Python tools to retrieve, compare and explain scientific results. Real API calls require explicit testing authorization. See the [development order and saved Meta requirements](docs/DEVELOPMENT_PLAN.md); no Meta integration or real model call has been implemented or performed.
 
 The [repository audit](docs/REPOSITORY_AUDIT.md) is a maintenance record of inspection and cleanup, not a second project README. Further research ideas and application architecture will be documented as development proceeds.
