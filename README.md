@@ -10,7 +10,7 @@ The Python engine directs calibration toward measurements with the highest expec
 
 **This is a working simulation research prototype. No physical quantum processor is connected.** The scientific engine, FastAPI backend, React dashboard and hosted-model assistant are implemented. A live Muse Spark evidence-retrieval and completed explanation flow was verified on 5 November 2026. Live model-driven budget comparison remains unverified, although its Python tool and local tests are implemented.
 
-[Run locally](#run-locally) · [Demo script](docs/DEMO_SCRIPT.md) · [Scientific method](docs/SCIENTIFIC_INTERFACE.md) · [Research evidence](research/README.md) · [Meta integration](docs/ASSISTANT_WALKTHROUGH.md)
+[Run locally](#run-locally) · [Scientific method](docs/SCIENTIFIC_INTERFACE.md) · [Research evidence](research/README.md) · [Meta integration](docs/ASSISTANT_WALKTHROUGH.md)
 
 ## Research origin and hackathon contribution
 
@@ -102,13 +102,13 @@ python -m backend.run --live
 
 The launcher privately prompts for the Meta API key if `MODEL_API_KEY` is absent. It does not save the key to disk or make a model call at startup. A Meta account with working model access and billing verification is required. Do not place keys in React, tracked files, recordings or chat. [Detailed setup and troubleshooting](docs/SETUP.md).
 
-## Suggested demo
+## Example workflow
 
 Use **Layered Clifford · 6 qubits · 100 shots · Local + link shift · seed 42 · placement guard enabled**. Click **Run calibration**, inspect the circuit, select an adaptive stage, then review the posterior and placement.
 
 In the verified run, all 100 shots were used and the initial placement was retained. The final expected task loss was `0.075165` and accepted improvement was zero. Retention is a valid result, not a failed run. No switch probability was estimated because the candidate was already the incumbent.
 
-Finish in **Research assistant**, leave the budget selector on **Explain this experiment**, and ask **“Why was this placement selected?”** Show the returned explanation and its technical tool record. The [three-minute script and component guide](docs/DEMO_SCRIPT.md) provide exact actions and interpretation notes. The video recording is being prepared separately. It opens with the earlier NS-QPEFT research attribution, then shows the Q-Bridge workflow and where Muse Spark is used, without slides.
+In **Research assistant**, leave the budget selector on **Explain this experiment** and ask **“Why was this placement selected?”** Inspect the returned explanation alongside the Python evidence and technical tool record.
 
 ## Research evidence and validation
 
@@ -159,9 +159,8 @@ results/           Ignored generated runs and local usage ledger
 docs/              Setup, scientific explanation, demo and research history
 ```
 
-Canonical research is preserved without duplicate raw records. The [research index](research/README.md) links archives and provenance. The [repository audit](docs/REPOSITORY_AUDIT.md) records cleanup history.
+Canonical research is preserved without duplicate raw records. The [research index](research/README.md) links archives and provenance. Earlier maintenance records remain available in Git history.
 
-- [Demo script and plain-language component guide](docs/DEMO_SCRIPT.md)
 - [Setup](docs/SETUP.md), [backend walkthrough](docs/BACKEND_WALKTHROUGH.md), [dashboard walkthrough](docs/FRONTEND_WALKTHROUGH.md)
 - [Muse Spark integration and verification](docs/ASSISTANT_WALKTHROUGH.md)
 - [Scientific interface](docs/SCIENTIFIC_INTERFACE.md), [specification](docs/SPEC.md), [final method decision](docs/QBridge-M2C-final-decision.md)

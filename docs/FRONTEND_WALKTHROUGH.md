@@ -43,14 +43,10 @@ The dark research workspace uses teal for QPU A, violet for QPU B and amber for 
 
 `components/UI.jsx` holds small shared panels/tables; `lib/format.js` holds labels and number formatting; `index.css` defines the responsive visual system. `Calibration.jsx` contains the journey and noise chart; `Placement.jsx`, `CircuitViewer.jsx` and `Benchmarks.jsx` handle their named sections. The package lock pins the installed dependency tree. `npm run format` formats source for readability.
 
-## Submission demo
-
-Use the [current three-minute script and component guide](DEMO_SCRIPT.md). It includes exact default settings, verified outputs, page-by-page actions and the genuine Muse Spark interaction. It replaces the earlier pre-Meta demo narrative.
-
 ## Verification and remaining review
 
 `npm test` checks typed submissions, invalid budgets, truthful null probabilities, circuit recoloring, EVSI stage selection, API errors, preservation of previous results and paired-budget settings. Python tests remain responsible for mathematical correctness. `npm run build` checks production compilation.
 
-Latest local checks on 5 November 2026: all 24 frontend tests and 204 Python tests passed, and the production build passed. The Python suite reports one existing Starlette/HTTPX deprecation warning. Desktop and narrow-screen layouts have been reviewed. The experiment, benchmark, saved-run and guide pages were inspected again while preparing the demo.
+Latest local checks on 5 November 2026: all 24 frontend tests and 204 Python tests passed, and the production build passed. The Python suite reports one existing Starlette/HTTPX deprecation warning. Desktop and narrow-screen layouts have been reviewed. The experiment, benchmark, saved-run and guide pages were also checked in the running application.
 
 A genuine Muse Spark evidence-retrieval and explanation flow was verified separately. Live model-driven budget comparison remains unverified. Automated tests use local/fake-provider paths and do not establish external service availability. See the [assistant verification record](ASSISTANT_WALKTHROUGH.md).
