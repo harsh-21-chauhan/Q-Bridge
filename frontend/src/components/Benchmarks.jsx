@@ -33,12 +33,12 @@ export default function Benchmarks({ report, error, loading, reload }) {
     <>
       <div className="page-intro">
         <div>
-          <span className="eyebrow">M2C · Preserved research evidence</span>
+          <span className="eyebrow">Research evidence</span>
           <h1>Every decision has a trade-off.</h1>
           <p>Compare calibration policies across controlled, simulated conditions.</p>
         </div>
       </div>
-      <div className="metrics">
+      <div className="metrics metrics-three">
         <Metric
           label="Configurations"
           value={report.configuration_count}
@@ -47,14 +47,13 @@ export default function Benchmarks({ report, error, loading, reload }) {
         <Metric
           label="Trial/configuration pairs"
           value={report.trial_configuration_count.toLocaleString()}
-          note="100 trials per configuration; environments shared"
+          note="100 trials per configuration. Environments are shared."
         />
         <Metric
           label="Policy outcomes"
           value={report.policy_outcome_count.toLocaleString()}
           note="Eight policies per trial"
         />
-        <Metric label="Evidence source" value="M2C" note="Full runs only · quick subset excluded" />
       </div>
       <Panel
         title="Policy comparison"
@@ -78,7 +77,8 @@ export default function Benchmarks({ report, error, loading, reload }) {
         }
       >
         <p className="caption">
-          Mean regret × 1,000 · smaller is better. Regret is graded with simulator-only truth.
+          Regret is the gap between the selected placement and the best placement under simulator
+          truth. Lower is better. Values are multiplied by 1,000 for readability.
         </p>
         <div
           className="benchmark-chart"
@@ -138,9 +138,9 @@ export default function Benchmarks({ report, error, loading, reload }) {
           <details>
             <summary>Paired comparison intervals for this scenario</summary>
             <p>
-              Comparator regret minus guard60 regret. Positive favors guard60. Intervals crossing
-              zero are inconclusive; these are scenario-specific, uncorrected for multiple
-              comparisons.
+              A positive reduction means the 60% guard had lower regret than the comparison policy.
+              If the interval includes zero, the difference is inconclusive. Each interval applies
+              only to this scenario. No adjustment was made for testing multiple comparisons.
             </p>
             <DataTable headers={['Comparator', 'Mean reduction', 'Paired 95% interval']}>
               {policies

@@ -1,3 +1,4 @@
+import AssistantAnswer from './AssistantAnswer';
 import { useEffect, useState } from 'react';
 import { Sparkles, Send, Pause, Play, Settings2, FileText, RefreshCw } from 'lucide-react';
 import AssistantEvidence from './AssistantEvidence';
@@ -164,7 +165,6 @@ export default function ResearchAssistant({ record }) {
           title="Explore this experiment"
           subtitle={`${record.configuration?.family?.toUpperCase() || 'Saved experiment'} · ${record.configuration?.qubits || '—'} qubits · ${record.configuration?.shots || '—'} shots`}
         >
-          <p className="caption break">Evidence source: {record.experiment_id}</p>
           <form onSubmit={ask}>
             <fieldset disabled={busy}>
               <div className="assistant-prompts">
@@ -217,14 +217,7 @@ export default function ResearchAssistant({ record }) {
           subtitle={answer.question}
           action={<Sparkles size={20} />}
         >
-          <div className="assistant-answer">
-            {answer.answer
-              .split(/\n\s*\n/)
-              .filter(Boolean)
-              .map((paragraph, i) => (
-                <p key={i}>{paragraph}</p>
-              ))}
-          </div>
+          <AssistantAnswer text={answer.answer} trace={answer.trace} />
           <p className="caption">
             AI explanation · verify against the scientific evidence below. Python computes all
             decisions.

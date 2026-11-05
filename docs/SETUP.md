@@ -119,7 +119,7 @@ The result contains `result.calibration`, `result.final_posterior`, `result.plac
 | `GET /api/experiments/{experiment_id}/evidence` | Retrieve only measurement/posterior decision evidence |
 | `GET /api/benchmarks/summary` | Eight aggregate policies and all 40 full M2C scenario breakdowns |
 
-The assistant exposes `/api/assistant/status`, `/api/assistant/ask` and `/api/assistant/disable`; see the assistant guide. Only `adaptive_evsi` is accepted for new experiments; the benchmark endpoint contains historical baseline comparisons. Changing `shots` with the same seed/scenario preserves the simulator's underlying environment and measurement prefixes, as documented in the scientific interface. No claim is made that more shots must produce a better individual result.
+The assistant exposes `/api/assistant/status`, `/api/assistant/ask`, `/api/assistant/disable`, `/api/assistant/resume` and `/api/assistant/explain`; see the assistant guide. Only `adaptive_evsi` is accepted for new experiments; the benchmark endpoint contains historical baseline comparisons. Changing `shots` with the same seed/scenario preserves the simulator's underlying environment and measurement prefixes, as documented in the scientific interface. No claim is made that more shots must produce a better individual result.
 
 ## Files and configuration
 
@@ -158,3 +158,6 @@ The completed backend run passed **176 tests**, including optional Aer checks. W
 | Port already in use | Stop the other local server or choose another port and use that port in the browser. |
 
 This is a local MVP, not a publicly secured deployment. Browser CORS permissions are not opened globally; Vite uses a development/preview proxy to reach the backend. If port 5173 is occupied, stop your previous frontend with Ctrl+C; strict port selection avoids silently opening a different server.
+
+
+For the research assistant's live demo, prefer `python -m backend.run --live` from the root instead of a sequence of shell exports. It privately prompts for a missing key, configures live permission, resumes the assistant and preserves usage limits. Stop the previous backend first; keep the frontend running separately. No model call occurs until a question is submitted. See [the assistant guide](ASSISTANT_WALKTHROUGH.md).

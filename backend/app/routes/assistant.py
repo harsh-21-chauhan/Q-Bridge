@@ -1,6 +1,6 @@
 """Local assistant endpoints. The browser cannot enable live mode."""
 from fastapi import APIRouter, Request
-from ..services.assistant_service import AssistantRequest
+from ..services.assistant_service import AssistantRequest, LocalExplanationRequest
 
 router = APIRouter(prefix='/api/assistant', tags=['Research assistant'])
 
@@ -15,3 +15,11 @@ def disable(request: Request):
 @router.post('/ask')
 def ask(body: AssistantRequest, request: Request):
     return request.app.state.assistant_service.ask(body)
+
+@router.post('/resume')
+def resume(request: Request):
+    return request.app.state.assistant_service.resume()
+
+@router.post('/explain')
+def explain(body: LocalExplanationRequest, request: Request):
+    return request.app.state.assistant_service.local_explanation(body.experiment_id)

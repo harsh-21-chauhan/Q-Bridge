@@ -137,11 +137,12 @@ export default function App() {
           <span className="brand-symbol">
             <Atom size={27} />
           </span>
-          <span>
-            Q-Bridge<small>RESEARCH WORKSPACE</small>
+          <span className="brand-copy">
+            <strong>Q-Bridge</strong>
+            <small>Research workspace</small>
           </span>
         </a>
-        <div className="workspace-label">WORKSPACE</div>
+        <div className="workspace-label">Research tools</div>
         <nav aria-label="Main navigation">
           {[
             ['experiment', FlaskConical, 'Experiment'],
@@ -162,21 +163,18 @@ export default function App() {
           ))}
         </nav>
         <div className="sidebar-bottom">
-          <div className="model-mark">
-            <span className="dot" /> SIMULATION LAB
-          </div>
           <p>
-            Three noise groups.
+            Adaptive calibration
             <br />
-            One informed placement.
+            with AI research support
           </p>
-          <span className="version">Scientific engine · v1</span>
+          <span className="badge">Placement guard</span>
         </div>
       </aside>
       <div className="main-shell">
         <header className="topbar">
           <div className="breadcrumb">
-            Workspace <ChevronRight size={13} />
+            Research <ChevronRight size={13} />
             <span>
               {
                 {
@@ -213,16 +211,12 @@ export default function App() {
             <>
               <div className="page-intro">
                 <div>
-                  <span className="eyebrow">Decision-aware Bayesian calibration</span>
+                  <span className="eyebrow">Bayesian calibration</span>
                   <h1>
                     Measure with purpose.
                     <br className="mobile-break" /> Place with evidence.
                   </h1>
-                  <p>
-                    Explore uncertainty across two quantum processors and their connecting link.
-                  </p>
                 </div>
-                <span className="edition">EXPERIMENT / 01</span>
               </div>
               <ExperimentForm config={config} setConfig={setConfig} busy={busy} onRun={run} />
               <div role="status" aria-live="polite" className="status-line">
@@ -295,8 +289,18 @@ export default function App() {
                       label="Placement decision"
                       value={result.decision.switched ? 'Updated' : 'Retained'}
                       note={`${result.circuit.placement_count} equal-capacity candidates`}
+                      accent="teal"
                     />
                   </div>
+                  <Note>
+                    <strong>
+                      {result.decision.switched
+                        ? 'The evidence supports a placement change.'
+                        : 'The initial placement was retained.'}
+                    </strong>{' '}
+                    {result.decision.reason}. Task loss measures stabilizer parity error. It is not
+                    full quantum state fidelity.
+                  </Note>
                   <CircuitViewer key={record.experiment_id} result={result} />
                   <Placement result={result} />
                   <CalibrationTimeline key={`trace-${record.experiment_id}`} result={result} />

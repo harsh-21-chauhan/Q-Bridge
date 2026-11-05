@@ -87,7 +87,12 @@ def test_live_protocol_with_fake_provider(client, monkeypatch):
     assert response.status_code == 200
     assert len(sent) == 2
     assert sent[1]['messages'][-1]['tool_call_id'] == 'call-1'
-    assert sent[1]['tool_choice'] == 'none'
+    assert sent[0]['max_completion_tokens'] == 1000
+    assert sent[1]['max_completion_tokens'] == 4096
+    assert sent[0]['tool_choice'] == 'auto'
+    assert 'tools' in sent[0]
+    assert 'tool_choice' not in sent[1]
+    assert 'tools' not in sent[1]
     assert response.json()['usage']['reserved_usd'] == .5
     assert 'test-secret' not in response.text
     assert 'truth_mode' not in json.dumps(sent)
@@ -129,3 +134,79 @@ def test_rate_limit_survives_service_restart(client):
     new = AssistantService(old.experiments, old.directory)
     with pytest.raises(Exception) as error: new.reserve()
     assert error.value.status_code == 429
+
+def test_resume_preserves_budget_authorization_and_mode(client):
+    service = client.app.state.assistant_service
+    service.reserve()
+    client.post('/api/assistant/disable')
+    result = client.post('/api/assistant/resume').json()
+    assert result['disabled'] is False
+    assert result['reserved_usd'] == .25
+    assert result['provider_calls'] == 1
+    assert result['mode'] == 'mock'
+    assert result['live_authorized'] is False
+    assert AssistantService(service.experiments, service.directory).status()['disabled'] is False
+
+def test_resume_cannot_override_server_disable_or_running_request(client, monkeypatch):
+    client.post('/api/assistant/disable')
+    monkeypatch.setenv('QBRIDGE_ASSISTANT_DISABLED', 'true')
+    assert client.post('/api/assistant/resume').status_code == 409
+    monkeypatch.delenv('QBRIDGE_ASSISTANT_DISABLED')
+    service = client.app.state.assistant_service
+    with service.operation():
+        assert client.post('/api/assistant/resume').status_code == 409
+        assert service.status()['paused'] is True
+    assert client.post('/api/assistant/resume').status_code == 200
+
+def test_local_fallback_is_read_only_available_when_paused_and_never_calls_provider(client, monkeypatch):
+    query = body(client)
+    service = client.app.state.assistant_service
+    monkeypatch.setenv('QBRIDGE_ASSISTANT_MODE', 'live')
+    monkeypatch.setenv('QBRIDGE_LIVE_AUTHORIZED', 'yes')
+    monkeypatch.setattr(service, 'completion', lambda *a: pytest.fail('Model call attempted'))
+    monkeypatch.setattr(service.experiments, 'create', lambda *a: pytest.fail('Unexpected calculation'))
+    client.post('/api/assistant/disable')
+    response = client.post('/api/assistant/explain', json={'experiment_id':query['experiment_id']})
+    assert response.status_code == 200
+    assert response.json()['mode'] == 'local'
+    assert 'same final posterior' in response.json()['answer']
+    for hidden in ('truth_mode', 'true_error_rates', 'oracle_loss', 'evaluation'):
+        assert hidden not in response.text
+    assert service.status()['provider_calls'] == 0
+
+@pytest.mark.parametrize('status,expected', [(400,'request format'),(401,'API key'),(402,'billing'),(403,'denied access'),(404,'model or endpoint'),(429,'quota'),(503,'service error')])
+def test_provider_http_errors_are_actionable_without_leaking_body(client, monkeypatch, status, expected):
+    import httpx
+    query = body(client)
+    response = httpx.Response(status, json={'error':{'message':'test-secret-never-real private prompt', 'param':'model'}}, request=httpx.Request('POST','https://api.meta.ai/v1/chat/completions'))
+    failure = httpx.HTTPStatusError('test-secret-never-real', request=response.request, response=response)
+    sent = install_transport(monkeypatch, [failure])
+    result = client.post('/api/assistant/ask', json=query)
+    assert result.status_code == 502
+    assert f'Meta HTTP {status}' in result.text
+    assert expected in result.text
+    assert 'test-secret' not in result.text
+    assert 'private prompt' not in result.text
+    assert len(sent) == 1
+    assert client.get('/api/assistant/status').json()['reserved_usd'] == .25
+
+@pytest.mark.parametrize('kind,expected_status,expected', [('timeout',504,'timed out'), ('connection',502,'connect securely')])
+def test_network_errors_are_distinct_and_never_retried(client, monkeypatch, kind, expected_status, expected):
+    import httpx
+    query = body(client)
+    failure = httpx.ReadTimeout('private details') if kind == 'timeout' else httpx.ConnectError('private details')
+    sent = install_transport(monkeypatch, [failure])
+    result = client.post('/api/assistant/ask', json=query)
+    assert result.status_code == expected_status
+    assert expected in result.text
+    assert 'private details' not in result.text
+    assert len(sent) == 1
+
+
+def test_truncated_response_is_reported_and_not_retried(client, monkeypatch):
+    query = body(client)
+    sent = install_transport(monkeypatch, [tool_reply(), {'choices':[{'finish_reason':'length','message':{'role':'assistant','content':'Incomplete'}}]}])
+    result = client.post('/api/assistant/ask', json=query)
+    assert result.status_code == 502
+    assert 'completion-token limit' in result.text
+    assert len(sent) == 2

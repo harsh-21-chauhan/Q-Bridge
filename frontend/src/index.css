@@ -95,14 +95,14 @@ p {
 }
 small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.6;
 }
 code,
 .mono,
 pre {
   font-family: 'SFMono-Regular', Consolas, monospace;
-  font-size: 12px;
+  font-size: 14px;
   font-variant-numeric: tabular-nums;
 }
 code {
@@ -129,7 +129,7 @@ fieldset {
   min-height: 100vh;
 }
 .sidebar {
-  width: 228px;
+  width: 260px;
   position: fixed;
   inset: 0 auto 0 0;
   background: #0e151f;
@@ -143,16 +143,18 @@ fieldset {
   display: flex;
   gap: 12px;
   align-items: center;
-  padding: 0 9px;
-  font-size: 23px;
+  padding: 0 4px;
+  font-size: 25px;
   font-weight: 650;
   letter-spacing: -0.8px;
 }
 .brand small {
   display: block;
-  font-size: 8px;
-  letter-spacing: 2px;
-  margin-top: 4px;
+  font-size: 10px;
+  letter-spacing: 0.6px;
+  margin-top: 5px;
+  line-height: 1.4;
+  white-space: nowrap;
 }
 .brand-symbol {
   color: #66e7d1;
@@ -162,22 +164,26 @@ fieldset {
   background: #152c30;
 }
 .workspace-label {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 2px;
   color: #708199;
-  margin: 48px 15px 16px;
+  margin: 34px 12px 12px;
 }
 .sidebar nav {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  padding: 6px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #0b131d;
 }
 .sidebar nav button {
   justify-content: flex-start;
   border-color: transparent;
   background: none;
   color: #9aabc0;
-  font-size: 12px;
+  font-size: 14px;
   padding: 12px;
   white-space: nowrap;
 }
@@ -188,14 +194,15 @@ fieldset {
 }
 .sidebar nav small {
   margin-left: auto;
-  font-size: 9px;
+  font-size: 11px;
 }
 .sidebar-bottom {
   margin-top: auto;
-  padding: 25px 12px 0;
+  padding: 22px 12px 0;
+  border-top: 1px solid var(--border);
 }
 .model-mark {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 1.5px;
   color: #80a097;
   display: flex;
@@ -203,17 +210,17 @@ fieldset {
   gap: 7px;
 }
 .sidebar-bottom p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
   margin: 14px 0;
 }
 .version {
-  font-size: 10px;
+  font-size: 12px;
   color: #6b7c92;
 }
 .main-shell {
-  margin-left: 228px;
-  width: calc(100% - 228px);
+  margin-left: 260px;
+  width: calc(100% - 260px);
 }
 .topbar {
   height: 70px;
@@ -231,14 +238,14 @@ fieldset {
   gap: 15px;
 }
 .breadcrumb {
-  font-size: 11px;
+  font-size: 13px;
   color: #6f8299;
 }
 .breadcrumb span {
   color: #b3c3d6;
 }
 .simulation-badge {
-  font-size: 9px;
+  font-size: 11px;
   color: #dfbd82;
   letter-spacing: 1.2px;
   border: 1px solid #54432c;
@@ -251,7 +258,7 @@ fieldset {
   background: none;
   padding: 5px;
   color: #9bacc0;
-  font-size: 10px;
+  font-size: 12px;
 }
 .dot {
   display: inline-block;
@@ -279,7 +286,7 @@ main {
   margin: 0 0 28px;
 }
 .eyebrow {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 1.7px;
   text-transform: uppercase;
   color: #77beaf;
@@ -287,13 +294,6 @@ main {
 }
 .page-intro p {
   font-size: 13px;
-}
-.edition {
-  margin-top: 17px;
-  font-size: 9px;
-  letter-spacing: 2px;
-  color: #63788f;
-  white-space: nowrap;
 }
 .mobile-break {
   display: none;
@@ -317,14 +317,14 @@ main {
   min-width: 0;
 }
 .panel-heading p {
-  font-size: 11px;
+  font-size: 13px;
   margin-top: 5px;
 }
 .panel-heading > svg {
   color: #778da5;
 }
 .panel p {
-  font-size: 12px;
+  font-size: 14px;
 }
 .form-grid {
   display: grid;
@@ -335,7 +335,7 @@ label {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 11px;
+  font-size: 13px;
   color: #bdc9d9;
   font-weight: 500;
 }
@@ -352,7 +352,7 @@ select {
 }
 select {
   padding-right: 28px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .guard-control {
   display: flex;
@@ -380,7 +380,7 @@ input[type='checkbox'] {
   gap: 12px;
 }
 .form-footer > span {
-  font-size: 10px;
+  font-size: 12px;
   color: #92aabc;
   display: flex;
   align-items: center;
@@ -399,7 +399,7 @@ input[type='checkbox'] {
   margin-top: 19px;
 }
 details > summary {
-  font-size: 11px;
+  font-size: 13px;
   color: #b8c8da;
   cursor: pointer;
   padding: 14px 0;
@@ -418,7 +418,7 @@ details p {
 .status-line {
   min-height: 20px;
   color: #85cbb7;
-  font-size: 11px;
+  font-size: 13px;
   margin-top: -10px;
   margin-bottom: 10px;
 }
@@ -470,11 +470,11 @@ details p {
   margin-top: 7px;
 }
 .result-heading p {
-  font-size: 11px;
+  font-size: 13px;
   margin-top: 5px;
 }
 .result-heading button {
-  font-size: 11px;
+  font-size: 13px;
 }
 .metrics {
   display: grid;
@@ -493,20 +493,24 @@ details p {
   min-width: 0;
 }
 .metric > span {
-  font-size: 10px;
+  font-size: 12px;
   color: #a8b6ca;
 }
 .metric strong {
-  font-size: 27px;
+  font-size: clamp(25px, 2.3vw, 32px);
   letter-spacing: -1px;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
+}
+.metric.teal {
+  border-color: #386b61;
+  background: #122622;
 }
 .metric.teal strong {
   color: #69e9d0;
 }
 .metric small {
-  font-size: 9px;
+  font-size: 11px;
 }
 .legend {
   display: flex;
@@ -518,7 +522,7 @@ details p {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  font-size: 10px;
+  font-size: 12px;
   color: #adbed2;
 }
 .legend i {
@@ -537,10 +541,10 @@ details p {
   display: block;
   width: 100%;
   font-family: monospace;
-  font-size: 12px;
+  font-size: 14px;
 }
 .caption {
-  font-size: 10px !important;
+  font-size: 12px !important;
   color: #8195ae;
   margin: 12px 0;
 }
@@ -555,11 +559,11 @@ table {
   border-collapse: collapse;
   width: 100%;
   text-align: left;
-  font-size: 11px;
+  font-size: 13px;
   white-space: nowrap;
 }
 th {
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 0.5px;
   color: #8196af;
   font-weight: 550;
@@ -609,10 +613,10 @@ td:first-child {
   background: #112324;
 }
 .placement h3 {
-  font-size: 11px;
+  font-size: 13px;
 }
 .badge {
-  font-size: 9px;
+  font-size: 11px;
   border: 1px solid #3b655c;
   color: #85d5bd;
   padding: 4px 6px;
@@ -642,7 +646,7 @@ td:first-child {
   background: #12302d;
 }
 .qpu > span {
-  font-size: 9px;
+  font-size: 11px;
   color: #75e3c9;
   letter-spacing: 1px;
 }
@@ -673,7 +677,7 @@ td:first-child {
   color: #d0bbff;
 }
 .placement > code {
-  font-size: 10px;
+  font-size: 12px;
   color: #7f94aa;
 }
 .decision-box {
@@ -693,7 +697,7 @@ td:first-child {
   padding: 15px 0;
 }
 .decision-values > span {
-  font-size: 10px;
+  font-size: 12px;
   color: #91a8bf;
 }
 .decision-values strong {
@@ -704,7 +708,7 @@ td:first-child {
   font-weight: 500;
 }
 .decision-box small {
-  font-size: 10px;
+  font-size: 12px;
 }
 .timeline {
   display: grid;
@@ -727,11 +731,11 @@ td:first-child {
   background: #142a2c;
 }
 .timeline button span:not(.step-number) {
-  font-size: 10px;
+  font-size: 12px;
   color: #a7b8cb;
 }
 .timeline strong {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
 }
 .step-number {
@@ -804,7 +808,7 @@ td:first-child {
   background: #152130;
   border-radius: 5px;
   color: #9fb2ca;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1.7;
   margin: 16px 0;
 }
@@ -819,7 +823,7 @@ td:first-child {
   flex-wrap: wrap;
 }
 .button-group button {
-  font-size: 11px;
+  font-size: 13px;
 }
 .evaluation {
   border-color: #534834;
@@ -844,7 +848,7 @@ td:first-child {
 .readable-list {
   padding-left: 20px;
   color: #a9bacd;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.9;
   margin: 15px 0;
 }
@@ -858,7 +862,7 @@ td:first-child {
   padding: 15px;
   border-radius: 6px;
   margin-bottom: 18px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
   display: flex;
   justify-content: space-between;
@@ -866,7 +870,7 @@ td:first-child {
   overflow-wrap: anywhere;
 }
 .error button {
-  font-size: 10px;
+  font-size: 12px;
   flex: none;
 }
 footer {
@@ -876,7 +880,7 @@ footer {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  font-size: 9px;
+  font-size: 11px;
   color: #657c94;
   letter-spacing: 1px;
 }
@@ -892,15 +896,15 @@ footer {
     padding-top: 45px;
   }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1244px) {
   .sidebar {
-    width: 200px;
+    width: 244px;
     padding-left: 10px;
     padding-right: 10px;
   }
   .main-shell {
-    margin-left: 200px;
-    width: calc(100% - 200px);
+    margin-left: 244px;
+    width: calc(100% - 244px);
   }
   main {
     padding: 25px 24px 0;
@@ -926,9 +930,6 @@ footer {
   .timeline button {
     padding: 12px 9px;
   }
-  .edition {
-    display: none;
-  }
 }
 @media (max-width: 900px) {
   .sidebar {
@@ -946,6 +947,8 @@ footer {
   }
   .sidebar nav {
     margin-top: 28px;
+    padding: 0;
+    border: 0;
   }
   .sidebar nav button {
     font-size: 0;
@@ -1041,7 +1044,7 @@ footer {
     padding: 0 16px;
   }
   .breadcrumb {
-    font-size: 10px;
+    font-size: 12px;
     gap: 6px;
   }
   .top-actions {
@@ -1066,10 +1069,10 @@ footer {
     letter-spacing: -1px;
   }
   .page-intro p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .eyebrow {
-    font-size: 8px;
+    font-size: 10px;
   }
   .mobile-break {
     display: block;
@@ -1094,7 +1097,7 @@ footer {
     padding: 12px;
   }
   .form-footer > span {
-    font-size: 9px;
+    font-size: 11px;
   }
   .metrics {
     gap: 8px;
@@ -1107,11 +1110,11 @@ footer {
     font-size: 23px;
   }
   .metric > span {
-    font-size: 9px;
+    font-size: 11px;
     min-height: 24px;
   }
   .metric small {
-    font-size: 8px;
+    font-size: 10px;
   }
   .result-heading {
     align-items: flex-start;
@@ -1121,14 +1124,14 @@ footer {
     font-size: 15px;
   }
   .result-heading button {
-    font-size: 10px;
+    font-size: 12px;
     padding: 8px;
   }
   .legend {
     gap: 12px;
   }
   .legend > span {
-    font-size: 9px;
+    font-size: 11px;
   }
   .decision-values {
     gap: 20px;
@@ -1149,7 +1152,7 @@ footer {
     margin-bottom: 14px;
   }
   footer {
-    font-size: 8px;
+    font-size: 10px;
     flex-direction: column;
   }
   .badge.amber {
@@ -1217,7 +1220,7 @@ textarea {
   margin: 16px 0 22px;
 }
 .assistant-prompts button {
-  font-size: 11px;
+  font-size: 13px;
   text-align: left;
 }
 .assistant-submit {
@@ -1231,7 +1234,19 @@ textarea {
   max-width: 350px;
 }
 .assistant-answer {
-  margin-top: 16px;
+  margin: 20px 0 24px;
+  padding: clamp(16px, 2vw, 24px);
+  border-left: 2px solid #406b64;
+  border-radius: 0 8px 8px 0;
+  background: rgb(132 230 206 / 3%);
+  overflow-wrap: anywhere;
+}
+.assistant-answer > :first-child,
+.assistant-answer > .answer-section:first-child h3 {
+  margin-top: 0;
+}
+.assistant-answer > :last-child {
+  margin-bottom: 0;
 }
 .assistant-answer p {
   white-space: pre-wrap;
@@ -1258,5 +1273,73 @@ textarea {
   }
   .assistant-submit label {
     max-width: none;
+  }
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+.brand-copy strong {
+  font-weight: 650;
+  line-height: 1.1;
+}
+.brand-symbol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.sidebar {
+  overflow-y: auto;
+}
+.sidebar nav svg {
+  flex: none;
+}
+.metrics-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.metric > span {
+  line-height: 1.5;
+}
+.metric small {
+  line-height: 1.6;
+}
+.panel-heading h2 {
+  font-size: 19px;
+  line-height: 1.4;
+}
+.assistant-answer ul {
+  padding-left: 22px;
+  margin: 10px 0 20px;
+  color: #c4d2e2;
+  line-height: 1.8;
+}
+.assistant-answer li {
+  margin: 6px 0;
+}
+.answer-section h3 {
+  color: #84e6ce;
+  font-size: 16px;
+  margin: 22px 0 8px;
+}
+@media (max-width: 600px) {
+  .metrics-three {
+    grid-template-columns: 1fr;
+  }
+  .metrics-three .metric > span {
+    min-height: 0;
+  }
+  .sidebar nav button {
+    flex: 1;
+    padding: 12px 8px;
+  }
+  .brand small {
+    font-size: 11px;
+  }
+  .panel-heading h2 {
+    font-size: 18px;
   }
 }

@@ -4,7 +4,7 @@
 
 Q-Bridge investigates how to spend a limited calibration budget before assigning a quantum circuit's qubits to two processors. Python computes which error sources to measure, updates Bayesian beliefs, and evaluates placements under uncertainty.
 
-**Simulation-only research prototype.** M1–M2C research, the scientific production interface, FastAPI backend and React dashboard are implemented. The selected method is adaptive EVSI with the original Beta priors and an optional 60% placement-switch guard. The Muse Spark assistant adapter is implemented with mock mode as default; live testing remains unverified and requires explicit authorization.
+**Simulation-only research prototype.** M1–M2C research, the scientific production interface, FastAPI backend and React dashboard are implemented. The selected method is adaptive EVSI with the original Beta priors and an optional 60% placement-switch guard. The Muse Spark assistant adapter is implemented with mock mode as default; one live Muse Spark explanation with genuine tool calling was verified on 5 November 2026. Further agent-run live tests require explicit authorization.
 
 ## Try the backend
 
@@ -138,6 +138,6 @@ Historical guides remain available: [M1 walkthrough](docs/M1_WALKTHROUGH.md), [M
 
 ## Next development stage
 
-The research assistant is now available in mock mode with real Python evidence tools and a bounded Muse Spark adapter. See the [assistant walkthrough](docs/ASSISTANT_WALKTHROUGH.md) for usage, spending controls and the code map. No real Meta API calls have been made. Live verification and the final demo remain pending.
+The research assistant is now available in mock mode with real Python evidence tools and a bounded Muse Spark adapter. See the [assistant walkthrough](docs/ASSISTANT_WALKTHROUGH.md) for usage, spending controls and the code map. A real Muse Spark tool call and completed evidence-grounded explanation were verified on 5 November 2026. Live budget-comparison verification, visual review and the final demo remain pending.
 
 The [repository audit](docs/REPOSITORY_AUDIT.md) is a maintenance record of inspection and cleanup, not a second project README. Further research ideas and application architecture will be documented as development proceeds.

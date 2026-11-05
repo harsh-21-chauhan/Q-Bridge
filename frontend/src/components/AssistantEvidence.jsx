@@ -8,7 +8,6 @@ function EvidenceRun({ data, title }) {
       <h3>
         {title} · {data.shots} shots
       </h3>
-      <p className="caption break">Source: {data.experiment_id}</p>
       <div className="metrics">
         <Metric
           label="Placement"
