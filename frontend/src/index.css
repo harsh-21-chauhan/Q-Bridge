@@ -1188,3 +1188,75 @@ textarea {
   margin-top: 24px;
   padding-top: 20px;
 }
+.assistant-intro {
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.assistant-intro h1 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: clamp(26px, 3vw, 36px);
+}
+.assistant-intro h1 svg {
+  color: var(--teal);
+  flex-shrink: 0;
+}
+.assistant-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.icon-button {
+  padding: 9px;
+}
+.assistant-prompts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 22px;
+}
+.assistant-prompts button {
+  font-size: 11px;
+  text-align: left;
+}
+.assistant-submit {
+  display: flex;
+  gap: 18px;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.assistant-submit label {
+  flex: 1;
+  max-width: 350px;
+}
+.assistant-answer {
+  margin-top: 16px;
+}
+.assistant-answer p {
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.85;
+  margin: 12px 0;
+}
+.assistant-utilities details:first-child {
+  margin-top: 0;
+  border-top: 0;
+}
+.assistant-utilities summary svg {
+  vertical-align: middle;
+  margin: 0 7px;
+  color: var(--muted);
+}
+.assistant-utilities button {
+  margin-top: 12px;
+}
+@media (max-width: 600px) {
+  .assistant-submit {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .assistant-submit label {
+    max-width: none;
+  }
+}

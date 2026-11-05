@@ -50,7 +50,7 @@ it('loads connection/history without creating experiments or model requests', as
   await screen.findByText('Backend connected');
   expect(api.run).not.toHaveBeenCalled();
   fireEvent.click(screen.getByRole('button', { name: /Research assistant/ }));
-  await screen.findByText('Mock assistant · no model calls');
+  await screen.findByText('Muse Spark research assistant');
   expect(api.run).not.toHaveBeenCalled();
   expect(api.benchmarks).not.toHaveBeenCalled();
 });
