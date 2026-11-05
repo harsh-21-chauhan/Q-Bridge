@@ -1,27 +1,90 @@
 # Q-Bridge
 
-**Decision-aware Bayesian calibration for distributed quantum circuit placement.**
+**Adaptive Bayesian calibration and guarded quantum circuit placement, explained with Meta Muse Spark.**
 
-Q-Bridge investigates how to spend a limited calibration budget before assigning a quantum circuit's qubits to two processors. Python computes which error sources to measure, updates Bayesian beliefs, and evaluates placements under uncertainty.
+Built for the **[Meta Global AI Developer Hackathon — Indie Developer Track](https://cerebralvalley.ai/e/meta-ai-developer-hackathon)**.
 
-**Simulation-only research prototype.** M1–M2C research, the scientific production interface, FastAPI backend and React dashboard are implemented. The selected method is adaptive EVSI with the original Beta priors and an optional 60% placement-switch guard. The Muse Spark assistant adapter is implemented with mock mode as default; one live Muse Spark explanation with genuine tool calling was verified on 5 November 2026. Further agent-run live tests require explicit authorization.
+Q-Bridge helps researchers answer two connected questions: **What should we measure with a limited calibration budget? And does the resulting evidence justify changing a circuit’s placement across quantum processors?**
 
-## Try the backend
+The Python engine directs calibration toward measurements with the highest expected placement benefit. The dashboard makes its decisions and uncertainty inspectable. Meta’s hosted Muse Spark model turns recorded evidence into research explanations through genuine function calling.
 
-With your Python environment active, run these commands from the repository root:
+**This is a working simulation research prototype. No physical quantum processor is connected.** The scientific engine, FastAPI backend, React dashboard and hosted-model assistant are implemented. A live Muse Spark evidence-retrieval and completed explanation flow was verified on 5 November 2026. Live model-driven budget comparison remains unverified, although its Python tool and local tests are implemented.
 
-```bash
-python -m pip install -e '.[api,dev,api-test]'
-python -m uvicorn backend.app.main:app --reload --host 127.0.0.1 --port 8000
+[Run locally](#run-locally) · [Demo script](docs/DEMO_SCRIPT.md) · [Scientific method](docs/SCIENTIFIC_INTERFACE.md) · [Research evidence](research/README.md) · [Meta integration](docs/ASSISTANT_WALKTHROUGH.md)
+
+## Research origin and hackathon contribution
+
+Before the hackathon, my [NS-QPEFT research](https://github.com/harsh-21-chauhan/NS-QPEFT) explored predicting simulated quantum-circuit behavior from circuit features and local/link noise. That work motivated a different question: **when the noise rates are uncertain, which limited measurements are worth making before choosing a circuit placement?**
+
+During this hackathon, I developed Q-Bridge's Bayesian calibration and placement workflow, evaluated alternative policies, and built the FastAPI/React workspace and Meta Muse Spark assistant. Q-Bridge is a separate implementation. It does not use NS-QPEFT's trained network or extend its neural architecture. The earlier project is research background, not a new hackathon feature or a claimed peer-reviewed publication.
+
+Early Q-Bridge experiments showed that learning about one error source while another remains misestimated can trigger harmful placement changes. That finding motivated exploratory measurements across the groups, sequential EVSI allocation and an optional switching guard. The final policy is an experimentally motivated compromise, not a universally optimal solution.
+
+## What you can do
+
+- **Run an experiment:** select a circuit, qubit count, calibration budget and reproducible simulated scenario.
+- **Follow adaptive calibration:** inspect exploratory measurements, subsequent EVSI choices and every Bayesian update.
+- **Understand placement:** compare initial, candidate and final assignments across two processors, with local and remote gate counts.
+- **Inspect uncertainty:** view posterior means, 95% credible intervals and the evidence for accepting or retaining a placement.
+- **Compare and reproduce:** explore budget alternatives, reopen saved records, export JSON and inspect eight benchmark policies.
+- **Ask Muse Spark:** obtain an evidence-grounded explanation with structured Decision, Evidence and Uncertainty sections and inspect the underlying Python tool results.
+
+## Why Meta’s model matters
+
+Researchers need to understand why a placement was retained, what informed calibration choices and what uncertainty remains. Muse Spark supplies an interactive natural-language layer over the scientific results.
+
+The assistant uses Meta’s hosted Model API with `muse-spark-1.3`. It requests scoped backend functions:
+
+| Tool | Purpose |
+|---|---|
+| `get_experiment_evidence` | Retrieve the selected experiment’s measurements, posterior uncertainty, placement and decision evidence. |
+| `compare_budget` | Run a user-selected budget alternative using the saved seed and scenario, then return both records with interpretation limits. |
+
+FastAPI validates the tool requests, executes the Python functions and returns their results to Muse Spark for a final explanation. **The language model does not perform Bayesian calculations or select the scientific placement.** Numerical evidence cards are rendered from backend data, separately from model prose. Simulator-only truth is excluded from these tools.
+
+The key stays in the backend environment. Development defaults to mock mode. Live access requires explicit configuration and deliberate submission. Persistent application reservations, request and output limits, no automatic retries, and a pause/resume control reduce spending risk. These controls are **not a guarantee of zero card charges** and do not query the provider’s credit balance. See the [assistant guide](docs/ASSISTANT_WALKTHROUGH.md).
+
+## How it works
+
+```mermaid
+flowchart LR
+    UI[React research workspace] --> API[FastAPI]
+    API --> SCI[Python scientific engine]
+    SCI --> DATA[Saved experiment evidence]
+    API --> META[Hosted Meta Muse Spark]
+    META -->|Function requests| TOOLS[Validated evidence tools]
+    TOOLS --> DATA
+    TOOLS -->|Budget comparison| SCI
+    TOOLS -->|Evidence| META
+    META -->|Explanation via FastAPI| UI
 ```
 
-Open [the interactive API page](http://127.0.0.1:8000/docs) and try `POST /api/experiments`. The backend runs the validated Python calculation, saves the JSON record, and returns its complete evidence with simulator-only evaluation separated. It also retrieves saved runs, lists history, provides evidence-only responses and serves verified M2C benchmark summaries. No Meta key is required.
+1. Start with illustrative Beta priors for local operations on A and B, and remote operations.
+2. Spend an initial exploration budget across all three groups.
+3. Use **expected value of sample information (EVSI)** to select further calibration batches by expected decision benefit, updating beliefs after each batch.
+4. Find the balanced placement with the lowest posterior expected task loss.
+5. With the default guard enabled, accept a change only when expected improvement is positive and sampled posterior support reaches 60%.
 
-Read the [step-by-step setup](docs/SETUP.md) and [plain-language backend walkthrough](docs/BACKEND_WALKTHROUGH.md) to understand the code and prepare your demonstration.
+The selected policy is `adaptive_original_guard60`. At a 100-shot budget, the pilot uses 10 shots on A, 10 on B and 20 on the link, followed by two adaptive 30-shot batches. The [scientific contract](docs/SCIENTIFIC_INTERFACE.md) and [final method decision](docs/QBridge-M2C-final-decision.md) explain the calculations and trade-offs.
 
-## Open the dashboard
+## Run locally
 
-With FastAPI running, open a second terminal (Node.js 22.12+):
+Use Python 3.10+ and Node.js 22.12+ with a compatible major version supported by Vite 7. Python 3.11 and macOS were used for verification. The assistant’s process lock uses `fcntl`, so its current backend requires macOS/Linux (or WSL). Bind this unauthenticated local prototype to `127.0.0.1`.
+
+From a fresh checkout:
+
+```bash
+git clone https://github.com/harsh-21-chauhan/Q-Bridge.git
+cd Q-Bridge
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[api,dev,api-test]'
+python -m backend.run
+```
+
+If you already use Conda, activate `qbridge` instead of creating `.venv`. The command above starts the backend in mock mode without contacting Meta. The scientific dashboard needs no API key.
+
+In a second terminal, from the repository root:
 
 ```bash
 cd frontend
@@ -29,115 +92,79 @@ npm ci
 npm run dev
 ```
 
-Open [Q-Bridge locally](http://127.0.0.1:5173). Run a calibration, inspect the circuit and placement, follow each Bayesian update, compare budgets, and browse preserved M2C benchmarks. Simulator-only evaluation is separate from decision evidence. See the [React walkthrough](docs/FRONTEND_WALKTHROUGH.md) for the code map and demo narrative.
+Open [the dashboard](http://127.0.0.1:5173) and [interactive API documentation](http://127.0.0.1:8000/docs). Keep both terminals running. On later starts, skip installation and use `python -m backend.run` and `npm run dev` in their respective directories.
 
-## Selected scientific method
-
-1. Start with illustrative error priors: Beta(2,98) for local A, Beta(3,97) for local B, and Beta(4,76) for remote operations.
-2. Explore all three error groups. At 100 shots, allocate 10 to A, 10 to B and 20 to the remote link.
-3. Use updated expected value of sample information (EVSI) to choose two further calibration batches, updating the posterior after each. At 100 shots, each batch has 30 shots. Existing budget functions support 20–1000 shots.
-4. Choose the placement with the lowest posterior expected task loss.
-5. Optionally accept a change only when its expected improvement is positive and its sampled posterior probability of improvement is at least 60%.
-
-The production wrapper in `src/qbridge/production.py` implements the finalized `adaptive_original_guard60` policy using existing scientific functions and explicitly selects the original priors. It returns complete calibration evidence and keeps simulator evaluation separate. The historical M2B demo uses mixture priors and a 75% guard; it is not the selected product default. See the [scientific interface contract](docs/SCIENTIFIC_INTERFACE.md) for Python usage, output fields and validation.
-
-See the [final scientific decision](docs/QBridge-M2C-final-decision.md) for the rationale and limitations.
-
-## Run the existing research code
-
-Python 3.10 or newer is required. From a fresh checkout:
+For an authorized live Muse Spark session, stop the existing backend first and run:
 
 ```bash
-git clone https://github.com/harsh-21-chauhan/Q-Bridge.git
-cd Q-Bridge
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -e '.[dev]'
+python -m backend.run --live
+```
+
+The launcher privately prompts for the Meta API key if `MODEL_API_KEY` is absent. It does not save the key to disk or make a model call at startup. A Meta account with working model access and billing verification is required. Do not place keys in React, tracked files, recordings or chat. [Detailed setup and troubleshooting](docs/SETUP.md).
+
+## Suggested demo
+
+Use **Layered Clifford · 6 qubits · 100 shots · Local + link shift · seed 42 · placement guard enabled**. Click **Run calibration**, inspect the circuit, select an adaptive stage, then review the posterior and placement.
+
+In the verified run, all 100 shots were used and the initial placement was retained. The final expected task loss was `0.075165` and accepted improvement was zero. Retention is a valid result, not a failed run. No switch probability was estimated because the candidate was already the incumbent.
+
+Finish in **Research assistant**, leave the budget selector on **Explain this experiment**, and ask **“Why was this placement selected?”** Show the returned explanation and its technical tool record. The [three-minute script and component guide](docs/DEMO_SCRIPT.md) provide exact actions and interpretation notes. The video recording is being prepared separately. It opens with the earlier NS-QPEFT research attribution, then shows the Q-Bridge workflow and where Muse Spark is used, without slides.
+
+## Research evidence and validation
+
+The frozen benchmark contains **40 configurations × 100 trials × 8 policies = 32,000 policy outcomes**. These are 4,000 trial/configuration pairs, not 32,000 independent experiments. Quick runs overlap the full evidence and are excluded from dashboard aggregates.
+
+The selected 60% guard has observed overall mean regret of approximately **0.001299**, with a **4.45%** harmful-switch rate across all trials. It had the lowest observed overall mean regret among the eight policies. Its small advantage over unguarded adaptive EVSI is **not established as universal**. Scenario intervals do not supply a combined confidence interval. See the [full summary](research/summaries/m2c-final-summary.csv) and [decision report](docs/QBridge-M2C-final-decision.md).
+
+Local verification on 5 November 2026: **204 Python tests and 24 frontend tests passed**, and the production frontend build passed. The Python run reported one Starlette/HTTPX deprecation warning. Desktop and narrow-screen layouts were reviewed. The live evidence-retrieval explanation was verified separately, not by the offline suite.
+
+Run checks from the repository root:
+
+```bash
 python -m pytest -q
+python scripts/verify_research_evidence.py
+cd frontend
+npm test
+npm run build
 ```
 
-On Windows, activate with `.venv\Scripts\activate`. If you already use the project's Conda environment, run `conda activate qbridge` instead of creating another environment.
+Optional independent Qiskit Aer checks require `python -m pip install -e '.[aer]'`. Without Aer, its two optional tests are skipped. Scientific regression tests cover budget accounting, Bayesian updates, archived-policy equivalence, reproducibility and separation of simulator truth from decisions. Assistant tests cover tool validation, limits, failures, pause/resume and mock/live labeling without paid requests.
 
-Run a complete final-method experiment (optional output must be a new file):
+For a command-line scientific experiment:
 
 ```bash
-python -m qbridge.production --family layered --qubits 6 --shots 100 --seed 42 --output results/production/seed42.json
+python -m qbridge.production --family layered --qubits 6 --shots 100 --seed 42
 ```
 
-Add `--unguarded` to disable the placement guard, or omit `--output` to print JSON only. The output includes initial/candidate/final placements, stage-by-stage Bayesian updates and EVSI choices, shot accounting, guard evidence and a separate simulator-only evaluation. No model or API key is needed.
+## Scientific scope
 
-Inspect the circuit and run a small historical M2C comparison:
+- Two labeled processors with balanced qubit allocation. Exact enumeration supports 6 or 12 qubits, with 20 or 924 candidate placements.
+- Small GHZ, layered and star Clifford circuits with three independent, static effective Pauli-error groups.
+- **Task loss is mean stabilizer-generator parity error, not quantum state fidelity.**
+- Remote operations use a simplified channel. There is no physical teleportation, Bell-pair generation or network-timing model.
+- Diagnostics are idealized. Readout noise, coherent errors, drift and correlations are not modeled.
+- Hidden simulator truth generates observations and grades completed decisions. It is not available to the calibration planner or assistant evidence tools.
+- A guard can reject helpful changes and can still be wrong when the prior or model is wrong. More measurements do not guarantee a better outcome in an individual trial.
 
-```bash
-python -m qbridge.cli inspect --family layered --qubits 6
-python -m qbridge.m2c_validation --family layered --qubits 6 --truth-mode shifted --shots 100 --runs 3 --seed 42 --output-prefix results/m2c/smoke
-```
-
-This is a functional smoke test, not enough trials for a performance claim. For the historical one-experiment M1 demonstration:
-
-```bash
-python -m qbridge.cli demo --family layered --qubits 6 --shots 100 --seed 42
-```
-
-Optional independent Qiskit Aer validation:
-
-```bash
-python -m pip install -e '.[aer,dev]'
-python -m qbridge.cli validate-aer --family layered --qubits 6
-python -m pytest -q
-```
-
-The cleanup baseline passed all 38 tests, including both Aer checks. The production suite adds archived M2C equivalence checks, exact budget/posterior checks, truthful guard reporting, reproducibility and simulator-truth isolation. Without the optional Aer dependencies, the two Aer tests are skipped.
-
-## Repository layout
+## Repository and documentation
 
 ```text
-Q-Bridge/
-├── backend/app/              FastAPI routes, validated schemas and small services
-├── frontend/                 React dashboard, API client and presentation tests
-├── src/qbridge/              Scientific engine and historical policy implementations
-├── tests/                    Scientific regression and independent validation tests
-├── scripts/                  Research runners, summarizers and evidence verification
-├── research/
-│   ├── evidence/             Three archives containing canonical research records
-│   ├── summaries/            Browsable summaries, including distinct quick-run reports
-│   ├── examples/             Historical M1 and M2B examples
-│   └── provenance.json      Checksums and original-to-canonical artifact mapping
-├── results/                  Ignored generated runs; only its README is versioned
-├── docs/                     Preserved research guides, final decision and cleanup record
-├── pyproject.toml
-└── README.md
+backend/           FastAPI routes, services and local launcher
+frontend/          React dashboard and presentation tests
+src/qbridge/       Scientific engine and historical policy implementations
+tests/             Scientific, API and assistant validation
+scripts/           Research runners, summaries and integrity checks
+research/          Canonical archives, summaries, examples and provenance
+results/           Ignored generated runs and local usage ledger
+docs/              Setup, scientific explanation, demo and research history
 ```
 
-The scientific modules remain separate: circuit construction and loss evaluation; Bayesian inference and EVSI; adaptive calibration and placement guards; research benchmarks and diagnostics; NumPy reference simulation and optional Aer validation. No mathematical core was rewritten for cleanup.
+Canonical research is preserved without duplicate raw records. The [research index](research/README.md) links archives and provenance. The [repository audit](docs/REPOSITORY_AUDIT.md) records cleanup history.
 
-## Research evidence
+- [Demo script and plain-language component guide](docs/DEMO_SCRIPT.md)
+- [Setup](docs/SETUP.md), [backend walkthrough](docs/BACKEND_WALKTHROUGH.md), [dashboard walkthrough](docs/FRONTEND_WALKTHROUGH.md)
+- [Muse Spark integration and verification](docs/ASSISTANT_WALKTHROUGH.md)
+- [Scientific interface](docs/SCIENTIFIC_INTERFACE.md), [specification](docs/SPEC.md), [final method decision](docs/QBridge-M2C-final-decision.md)
+- Historical research: [M1](docs/M1_WALKTHROUGH.md), [M2 diagnostics](docs/M2_DIAGNOSTICS.md), [M2B](docs/M2B_GUIDE.md), [M2C](docs/M2C_GUIDE.md)
 
-The [research index](research/README.md) links the canonical archives, summaries and examples. Raw evidence is stored once. Summaries and examples are not repeated inside archives. Seven quick-run CSVs were verified to be exact byte prefixes of full-run CSVs; their distinct summaries remain, and the original quick CSVs can be reconstructed exactly from the provenance manifest.
-
-Verify all evidence without installing scientific dependencies:
-
-```bash
-python3 scripts/verify_research_evidence.py
-```
-
-The full M2C benchmark contains 40 configurations × 100 trials × eight policies. The selected 60% guard has observed mean regret approximately **0.001299** and a **4.45%** harmful-switch rate across all trials. Its regret advantage over unguarded adaptive EVSI is small and not statistically established as universal. The quick runs overlap the full runs, and simulated environments are shared across some configurations; do not count them as independent replications. Use the [full summary](research/summaries/m2c-final-summary.csv) and [decision report](docs/QBridge-M2C-final-decision.md) for interpretation.
-
-Historical guides remain available: [M1 walkthrough](docs/M1_WALKTHROUGH.md), [M1 setup](docs/STEP_BY_STEP.md), [scientific specification](docs/SPEC.md), [M2 diagnostics](docs/M2_DIAGNOSTICS.md), [M2B](docs/M2B_GUIDE.md), and [M2C](docs/M2C_GUIDE.md). Their milestone-specific defaults and instructions describe the research at that time. Scripts still write disposable outputs to `results/`; see its [usage notes](results/README.md).
-
-## Scientific boundaries
-
-- Two labeled processors, A/B, each holding half the qubits; deterministic GHZ, layered and star Clifford circuits.
-- Three effective error probabilities. After a CNOT, the modeled channel applies identity with probability `1-p`, X on the target with `p/2`, or Z on the control with `p/2`.
-- Task loss is mean incorrect stabilizer-generator parity probability, **not full quantum state fidelity**.
-- Exact placement enumeration is limited to 12 qubits: 20 placements at 6 qubits, 924 at 12.
-- Remote operations use a simplified error channel, not physical teleportation, entanglement-generation or network-timing simulation.
-- Binary calibration observations assume idealized diagnostics; no real quantum hardware is connected.
-- Hidden simulator truth generates observations and grades results. It must never influence recommendations or be presented as observed calibration evidence to an assistant.
-- The guard describes uncertainty under the assumed posterior. It cannot guarantee beneficial decisions under a wrong model or prior.
-
-## Next development stage
-
-The research assistant is now available in mock mode with real Python evidence tools and a bounded Muse Spark adapter. See the [assistant walkthrough](docs/ASSISTANT_WALKTHROUGH.md) for usage, spending controls and the code map. A real Muse Spark tool call and completed evidence-grounded explanation were verified on 5 November 2026. Live budget-comparison verification, visual review and the final demo remain pending.
-
-The [repository audit](docs/REPOSITORY_AUDIT.md) is a maintenance record of inspection and cleanup, not a second project README. Further research ideas and application architecture will be documented as development proceeds.
+Historical guides retain their milestone-specific defaults. They are research records, not the current application startup instructions.

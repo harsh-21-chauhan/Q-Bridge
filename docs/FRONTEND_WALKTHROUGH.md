@@ -20,7 +20,7 @@ The dark research workspace uses teal for QPU A, violet for QPU B and amber for 
 | Benchmarks | All eight policies, full aggregate and 40 scenario filters, scenario-specific paired intervals and source checksum. |
 | Saved experiments | Paginated local records, stable ID order, reopen a completed experiment. |
 | Research guide | Plain-language explanations and model limitations. |
-| Research assistant | Mock walkthroughs and scoped scientific tools; see [assistant guide](ASSISTANT_WALKTHROUGH.md). Live model calls remain disabled. |
+| Research assistant | Hosted Muse Spark explanations through scoped Python tools, with a separate local fallback. The live retrieval/explanation flow was verified. See [assistant guide](ASSISTANT_WALKTHROUGH.md). |
 
 ## Important interpretation rules
 
@@ -30,7 +30,7 @@ The dark research workspace uses teal for QPU A, violet for QPU B and amber for 
 - EVSI is prospective expected decision benefit. Its values at a stage use beliefs **before** that stage's measurements.
 - Budget alternatives preserve the simulator's measurement prefix per group, but produce different posteriors. Subtracting their displayed expected losses does not directly measure improvement. More shots need not help one particular trial.
 - Benchmark harm/help rates are across all trials, not conditional on switching. Quick trials overlap the full evidence and are excluded. Scenario bootstrap intervals are not an overall significance claim.
-- Simulation scenario selection controls hidden data generation. Truth is never supplied to the planner. Exported full records intentionally include separate post-hoc evaluation; future assistant tools must use evidence-only responses for decision explanations.
+- Simulation scenario selection controls hidden data generation. Truth is never supplied to the planner. Exported full records intentionally include separate post-hoc evaluation; assistant tools use evidence-only responses for decision explanations.
 
 ## Follow one button through the code
 
@@ -43,24 +43,14 @@ The dark research workspace uses teal for QPU A, violet for QPU B and amber for 
 
 `components/UI.jsx` holds small shared panels/tables; `lib/format.js` holds labels and number formatting; `index.css` defines the responsive visual system. `Calibration.jsx` contains the journey and noise chart; `Placement.jsx`, `CircuitViewer.jsx` and `Benchmarks.jsx` handle their named sections. The package lock pins the installed dependency tree. `npm run format` formats source for readability.
 
-## A three-minute walkthrough of the current application
+## Submission demo
 
-This is a walkthrough of the completed local simulation app, not the later Meta-integrated final demo.
-
-| Time | Show and explain |
-|---|---|
-| 0:00–0:25 | “Q-Bridge chooses what to calibrate before assigning a circuit across two processors. This is a simulator with three effective error groups.” |
-| 0:25–0:50 | Run the default experiment. Point to the budget, loss definition and placement decision. |
-| 0:50–1:20 | Show the circuit and QPU assignments. Explain that remote operations use a different effective error group. |
-| 1:20–1:50 | Select an adaptive stage. Explain EVSI and show how failures/successes update the Beta beliefs. |
-| 1:50–2:15 | Show guard evidence and credible intervals. Explain that uncertainty is conditional on the model and a retained placement is valid. |
-| 2:15–2:40 | Open Benchmarks, filter one scenario, and distinguish observed regret from universal superiority. |
-| 2:40–3:00 | Reopen a saved run, show provenance/export, and state the simulator's limitations. Show the labeled mock assistant; live verification remains pending. |
+Use the [current three-minute script and component guide](DEMO_SCRIPT.md). It includes exact default settings, verified outputs, page-by-page actions and the genuine Muse Spark interaction. It replaces the earlier pre-Meta demo narrative.
 
 ## Verification and remaining review
 
 `npm test` checks typed submissions, invalid budgets, truthful null probabilities, circuit recoloring, EVSI stage selection, API errors, preservation of previous results and paired-budget settings. Python tests remain responsible for mathematical correctness. `npm run build` checks production compilation.
 
-Implementation checks on 4 November 2026: all 11 frontend tests and 176 Python tests passed; the production build passed; npm reported zero known dependency vulnerabilities; the research evidence verifier passed. A local request through the Vite proxy created/retrieved the default experiment, and all scientific result components plus the benchmark view rendered from real API responses. The Python suite reports one existing Starlette/HTTPX deprecation warning.
+Latest local checks on 5 November 2026: all 24 frontend tests and 204 Python tests passed, and the production build passed. The Python suite reports one existing Starlette/HTTPX deprecation warning. Desktop and narrow-screen layouts have been reviewed. The experiment, benchmark, saved-run and guide pages were inspected again while preparing the demo.
 
-Local browser automation was disabled in Work settings during implementation, so desktop/mobile visual inspection is pending. Open the dashboard on your laptop, then narrow the browser window to review the stacked layout. Automated component checks and successful compilation do not substitute for a visual check.
+A genuine Muse Spark evidence-retrieval and explanation flow was verified separately. Live model-driven budget comparison remains unverified. Automated tests use local/fake-provider paths and do not establish external service availability. See the [assistant verification record](ASSISTANT_WALKTHROUGH.md).
